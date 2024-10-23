@@ -1,0 +1,11 @@
+.octagonBg{
+    background-image: url(/img/octagonjpg.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.fondoHojas{
+    background-image: url(/img/fondoHojas.svg);
+    background-repeat: repeat;
+    background-size: cover;
+}
