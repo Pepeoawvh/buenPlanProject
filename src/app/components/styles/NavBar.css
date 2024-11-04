@@ -4,7 +4,7 @@ nav {
   height: 50px;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: 1fr;
-  color: rgb(118, 44, 130);
+  color: #2694e7;
 }
 
 navInicio {
@@ -123,7 +123,7 @@ nav ul {
   .navToggle span {
     width: 30px;
     height: 4px;
-    background: rgb(163, 54, 167);
+    background: #8d4244;
     margin-bottom: 5px;
     border-radius: 2px;
     transform-origin: 5px 0px;

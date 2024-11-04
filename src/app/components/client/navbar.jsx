@@ -32,15 +32,15 @@ const NavBar = () => {
       <div className={`blur-background ${isOpen && "open"}`} />
       <nav
         ref={navRef}
-        className="grid h-auto grid-cols-3 items-center py-2 justify-items-center"
+        className="grid h-auto grid-cols-3 items-center py-2 justify-items-center shadow-md"
       >
         <Link href="/">
           <div className="select-none pl-5">
-            <Image width={95} height={80} alt="Logo" src="img/Logo.svg" />
+            <Image width={150} height={150} alt="Logo" src="img/buenplan2.svg" />
           </div>
         </Link>
         <div>
-          <h1 className={`${questrial.className} text-3xl`}>Buen Plan</h1>
+          <h1 className={`${questrial.className} text-[#2694e7] text-xl`}> Asesoría Profesional en Planes de Salud</h1>
         </div>
         <ul
           className={`grid ${
@@ -49,32 +49,31 @@ const NavBar = () => {
             isOpen && "open"
           } sm:mt-0 pt-12`}
         >
-          <div className="grid grid-cols-2 justify-items-center items-center">
+          <div className="grid grid-cols-1 justify-items-center items-center">
             <div className="select-none pl-5">
-              <Image width={95} height={80} alt="Logo" src="img/Logo.svg" />
+              <Image width={120} height={120} alt="Logo" src="img/buenplan2.svg" />
             </div>
-            <div className="p-4 text-4xl">Buen Plan</div>
           </div>
           <Link
-            className="grid hover:bg-white bg-[#fac7b3] md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-white bg-[#ffeae1] md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/"
             onClick={handleLinkClick}
           >
             <li className="">Inicio</li>
           </Link>
           <Link
-            className="grid w-full hover:bg-white bg-[#fac7b3] md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
-            href="/galeria"
+            className="grid w-full hover:bg-white bg-[#ffeae1] md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
+            href="#about"
             onClick={handleLinkClick}
           >
-            <li className="">Galeria</li>
+            <li className="">Quienes somos</li>
           </Link>
           <Link
-            className="grid hover:bg-white bg-[#fac7b3] md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-white bg-[#ffeae1] md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/quienesomos"
             onClick={handleLinkClick}
           >
-            <li className="">Quienes Somos</li>
+            <li className="">Solicitar Informacion</li>
           </Link>
         </ul>
         <div

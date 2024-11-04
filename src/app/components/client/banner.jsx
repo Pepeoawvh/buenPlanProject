@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className=''>
       <Image
-        src="/img/banner1.png"
+        src="/img/banner2.png"
         alt=""
         width={1000}
         height={1000}
