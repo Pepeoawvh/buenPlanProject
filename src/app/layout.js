@@ -1,4 +1,4 @@
-import localFont from "next/font/local";
+import 'dotenv/config';
 import "./globals.css";
 
 

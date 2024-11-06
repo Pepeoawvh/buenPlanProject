@@ -3,9 +3,9 @@ import styles from '../styles/animations.module.css';
 
 const Banner = () => {
   return (
-    <div className=''>
+    <div id='banner' className=''>
       <Image
-        src="/img/banner2.png"
+        src="/img/banner3.png"
         alt=""
         width={1000}
         height={1000}

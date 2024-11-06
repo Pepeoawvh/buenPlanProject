@@ -4,7 +4,7 @@ import styles from '../styles/animations.module.css';
 
 const Services = () => {
     return (
-        <section className='bg-[#2694e7] grid justify-items-center text-slate-900 py-4 px-2'>
+        <section id='servicios' className='bg-[#2694e7] grid justify-items-center text-slate-900 py-4 px-2'>
          <h2 className={`${bebas.className} text-white  text-3xl py-4`}>Planes de Salud</h2>
           <div className='grid text-left justify-items-center w-full p-2'>
            
