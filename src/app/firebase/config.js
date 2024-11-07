@@ -1,7 +1,6 @@
 require("dotenv").config();
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import { getAnalytics, isSupported } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,15 +19,3 @@ const app = firebase.initializeApp(firebaseConfig);
 // Initialize Firestore
 export const firestoreDB = app.firestore();
 
-// Initialize Firebase Analytics if supported and in client environment
-let analytics;
-if (typeof window !== 'undefined') {
-  isSupported().then((supported) => {
-    if (supported) {
-      analytics = getAnalytics(app);
-      // Firebase Analytics initialized
-    }
-  });
-}
-
-export { analytics };
