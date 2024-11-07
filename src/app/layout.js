@@ -3,8 +3,8 @@ import "./globals.css";
 
 
 export const metadata = {
-  title: "Ayudaplan",
-  description: "Ayuda plan",
+  title: "Buen Plan CL",
+  description: "BuenPlan Project",
 };
 
 export default function RootLayout({ children }) {

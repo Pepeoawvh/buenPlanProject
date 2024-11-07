@@ -19,6 +19,7 @@ const Contact = () => {
     });
 
     const [error, setError] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const form = useRef();
 
     const validarRUT = (rut) => {
@@ -50,12 +51,14 @@ const Contact = () => {
             try {
                 await firestoreDB.collection('formubuenplan').add(formData);
                 console.log('Formulario enviado');
-                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID')
+                emailjs.sendForm('service_d4dgdka', 'template_40p4jtg', form.current, 'An7izEtXbf95R0oIn')
                     .then((result) => {
                         console.log(result.text);
                     }, (error) => {
                         console.log(error.text);
                     });
+                alert('¡Formulario enviado exitosamente!');
+                setIsSubmitted(true);
             } catch (error) {
                 console.error('Error al enviar el formulario:', error);
             }
@@ -70,35 +73,35 @@ const Contact = () => {
     };
 
     return (
-        <section id='contact' className='grid justify-items-center text-center text-slate-600'>
-            <h2 className='mb-4'>¡Contáctanos!</h2>
-            <form ref={form} className='grid justify-items-center p-4 w-80 border-2 border-[#114ca9] rounded-md shadow-md gap-2' onSubmit={handleSubmit}>
-                <label className='w-10/12' htmlFor="nombre">Nombre</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="nombre" name="nombre" placeholder="Nombre" required autoComplete="name" value={formData.nombre} onChange={handleChange}/>
+        <section id='contact' className='grid justify-items-center text-center bg-[#e9faff] text-slate-600'>
+            <h2 className='mb-4'>¡Contacto!</h2>
+            {!isSubmitted ? (
+                <form ref={form} className='grid justify-items-center p-4 w-80 border-2 border-[#114ca9] rounded-md mb-4 shadow-md gap-2' onSubmit={handleSubmit}>
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="nombre" name="nombre" placeholder="Nombre" required autoComplete="name" value={formData.nombre} onChange={handleChange}/>
 
-                <label className='w-10/12' htmlFor="rut">Rut</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="rut" name="rut" placeholder="Rut" required pattern="^[0-9]+[-][0-9kK]{1}$" autoComplete="off" value={formData.rut} onChange={handleChange}/>
-                {error && <p className='text-red-500'>{error}</p>}
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="rut" name="rut" placeholder="Rut ej: 12345678-9" required pattern="^[0-9]+[-][0-9kK]{1}$" autoComplete="off" value={formData.rut} onChange={handleChange}/>
+                    {error && <p className='text-red-500'>{error}</p>}
 
-                <label className='w-10/12' htmlFor="email">Email</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="email" id="email" name="email" placeholder="Email" required autoComplete="email" value={formData.email} onChange={handleChange}/>
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="email" id="email" name="email" placeholder="Email" required autoComplete="email" value={formData.email} onChange={handleChange}/>
 
-                <label className='w-10/12' htmlFor="edad">Edad</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="number" id="edad" name="edad" placeholder="Edad" required min="0" max="120" autoComplete="off" value={formData.edad} onChange={handleChange}/>
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="number" id="edad" name="edad" placeholder="Edad" required min="18" max="120" autoComplete="off" value={formData.edad} onChange={handleChange}/>
 
-                <label className='w-10/12' htmlFor="telefono">Teléfono</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="tel" id="telefono" name="telefono" placeholder="Teléfono" required autoComplete="tel" value={formData.telefono} onChange={handleChange}/>
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="tel" id="telefono" name="telefono" placeholder="Teléfono" required autoComplete="tel" value={formData.telefono} onChange={handleChange}/>
 
-                <label className='w-10/12' htmlFor="institucion">Institución Actual</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="institucion" name="institucion" placeholder="Institución Actual" required autoComplete="organization" value={formData.institucion} onChange={handleChange}/>
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="institucion" name="institucion" placeholder="Institución Actual" required autoComplete="organization" value={formData.institucion} onChange={handleChange}/>
 
-                <label className='w-10/12' htmlFor="clinica">Clínica de Preferencia</label>
-                <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="clinica" name="clinica" placeholder="Clínica de Preferencia" required autoComplete="off" value={formData.clinica} onChange={handleChange}/>
+                    <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="clinica" name="clinica" placeholder="Clínica de Preferencia" required autoComplete="off" value={formData.clinica} onChange={handleChange}/>
 
-                <button className={`${bebas.className} ${styles.zoomImage}  bg-[#2694e7] shadow-md justify-self-center border-4  border-white py-2 px-3 rounded-full text-xl w-3/4 pt-3 text-white`}>
-                    Contactar
-                </button>
-            </form>
+                    <button className={`${bebas.className} ${styles.zoomImage}  bg-[#2694e7] shadow-md justify-self-center border-4  border-white py-2 px-3 rounded-full text-xl w-3/4 pt-3 text-white`}>
+                        Contactar
+                    </button>
+                </form>
+            ) : (
+                <div className='p-4 w-80 border-2 border-[#114ca9] rounded-md mb-4 shadow-md bg-[#d1e7dd] text-[#0f5132]'>
+                    <h3 className='text-xl font-bold'>¡Gracias!</h3>
+                    <p>Te contactaremos a la brevedad.</p>
+                </div>
+            )}
         </section>
     );
 }
