@@ -4,19 +4,24 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete }) => (
   <React.Fragment key={row.original.id}>
     <tr
+      key={row.id} // Pasar la propiedad key directamente
       {...row.getRowProps()}
       className={`border-[0.5px] border-[#545f47] cursor-pointer ${isSelected ? 'bg-gray-200' : ''}`}
       onClick={() => handleRowClick(row.original.id)}
     >
-      {row.cells.map((cell) => (
-        <td
-          {...cell.getCellProps()}
-          key={cell.id}
-          className="py-1 px-1 whitespace-nowrap overflow-hidden text-ellipsis"
-        >
-          {cell.render("Cell")}
-        </td>
-      ))}
+      {row.cells.map((cell) => {
+        const cellProps = cell.getCellProps();
+        const { key, ...rest } = cellProps; // Extraer la clave y el resto de las propiedades
+        return (
+          <td
+            key={cell.column.id} // Pasar la propiedad key directamente
+            {...rest}
+            className="py-1 px-1 whitespace-nowrap overflow-hidden text-ellipsis"
+          >
+            {cell.render("Cell")}
+          </td>
+        );
+      })}
     </tr>
     {isSelected && (
       <tr className="border-[0.5px] border-[#545f47] bg-gray-200">

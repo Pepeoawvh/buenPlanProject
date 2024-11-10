@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTable, useSortBy } from "react-table";
-import { format } from "date-fns";
+import { format, isValid } from "date-fns";
 import { firestoreDB } from '../../firebase/config.js';
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -36,7 +36,7 @@ const SortableTable2 = () => {
       { Header: "Teléfono", accessor: "telefono" },
       { Header: "Institución", accessor: "institucion", Cell: ({ value }) => abbreviateText(value, 15) },
       { Header: "Clínica", accessor: "clinica" },
-      { Header: "Fecha de Envío", accessor: "fechaEnvio", Cell: ({ value }) => format(new Date(value), 'dd/MM/yyyy HH:mm') },
+      { Header: "Fecha de Envío", accessor: "createdAt", Cell: ({ value }) => isValid(new Date(value)) ? format(new Date(value), 'dd/MM/yyyy') : 'Fecha inválida' },
     ],
     []
   );
@@ -44,7 +44,10 @@ const SortableTable2 = () => {
   useEffect(() => {
     const fetchData = async () => {
       const snapshot = await firestoreDB.collection('formubuenplan').get();
-      const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const data = snapshot.docs.map(doc => {
+        const createdAt = doc.metadata.createTime ? doc.metadata.createTime.toDate() : new Date();
+        return { id: doc.id, ...doc.data(), createdAt };
+      });
       setData(data);
       setFilteredData(data);
     };
@@ -64,7 +67,7 @@ const SortableTable2 = () => {
   useEffect(() => {
     if (selectedMonth) {
       const filteredByMonth = data.filter(item => {
-        const itemMonth = new Date(item.fechaEnvio).toISOString().slice(0, 7);
+        const itemMonth = new Date(item.createdAt).toISOString().slice(0, 7);
         return itemMonth === selectedMonth;
       });
       setFilteredData(filteredByMonth);
@@ -82,18 +85,16 @@ const SortableTable2 = () => {
   };
 
   const handleDelete = async (row) => {
-    if (window.confirm("¿Estás seguro de que deseas eliminar este invitado ?")) {
-      try {
-        await firestoreDB
-          .collection("formubuenplan")
-          .doc(row.original.id)
-          .delete();
-        alert("Registro eliminado exitosamente.");
-        setFilteredData(filteredData.filter(item => item.id !== row.original.id));
-      } catch (error) {
-        console.error("Error al eliminar el registro:", error);
-        alert("Hubo un problema al eliminar el registro.");
-      }
+    try {
+      await firestoreDB
+        .collection("formubuenplan")
+        .doc(row.original.id)
+        .delete();
+      alert("Registro eliminado exitosamente.");
+      setFilteredData(filteredData.filter(item => item.id !== row.original.id));
+    } catch (error) {
+      console.error("Error al eliminar el registro:", error);
+      alert("Hubo un problema al eliminar el registro.");
     }
   };
 
@@ -179,14 +180,14 @@ const SortableTable2 = () => {
         <thead className="bg-lime-600 text-orange-100">
           {headerGroups.map((headerGroup) => (
             <tr
+              key={headerGroup.id} // Pasar la propiedad key directamente
               {...headerGroup.getHeaderGroupProps()}
-              key={headerGroup.id}
               className="border-b border-[#545f47]"
             >
               {headerGroup.headers.map((column) => (
                 <th
+                  key={column.id} // Pasar la propiedad key directamente
                   {...column.getHeaderProps(column.getSortByToggleProps())}
-                  key={column.id}
                   className="py-1"
                 >
                   {column.render("Header")}
@@ -235,4 +236,4 @@ const SortableTable2 = () => {
   );
 };
 
-export default SortableTable2;
+export default SortableTable2;  

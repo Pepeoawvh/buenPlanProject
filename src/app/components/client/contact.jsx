@@ -14,8 +14,7 @@ const Contact = () => {
         edad: '',
         telefono: '',
         institucion: '',
-        clinica: '',
-        fechaEnvio: ''
+        clinica: ''
     });
 
     const [error, setError] = useState('');

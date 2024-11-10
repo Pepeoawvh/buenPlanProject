@@ -69,11 +69,10 @@ const AdminBP = () => {
       <div className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
         <h1 className="text-center text-2xl my-4 pl-4">FORMULARIOS BUEN PLAN</h1>
         <SortableTable2 columns={columns} data={data} />
-        <div className="grid mb-4 mt-4 bg-cyan-600 w-screen justify-items-center justify-self-start text-xl py-2">
+        <div className="grid mb-4 mt-4 bg-lime-600 w-screen justify-items-center justify-self-start text-xl py-2">
         </div>
       </div>
       <div className="grid justify-items-center">
-        <Contact />
       </div>
     </div>
   );
