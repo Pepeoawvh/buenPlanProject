@@ -69,7 +69,7 @@ const AdminBP = () => {
   );
 
   return (
-    <div className="bg-gray-900 h-screen">
+    <div className="bg-gray-900 h-screen w-screen">
       <div className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
         <h1 className="text-center text-2xl my-4 pl-4">FORMULARIOS BUEN PLAN</h1>
         <SortableTable2 columns={columns} data={data} />

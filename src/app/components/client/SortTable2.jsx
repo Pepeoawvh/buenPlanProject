@@ -30,12 +30,7 @@ const SortableTable2 = () => {
   const columns = React.useMemo(
     () => [
       { Header: "Nombre", accessor: "nombre" },
-      { Header: "RUT", accessor: "rut" },
-      { Header: "Email", accessor: "email" },
-      { Header: "Edad", accessor: "edad" },
-      { Header: "Teléfono", accessor: "telefono" },
       { Header: "Institución", accessor: "institucion", Cell: ({ value }) => abbreviateText(value, 15) },
-      { Header: "Clínica", accessor: "clinica" },
       { Header: "Fecha de Envío", accessor: "createdAt", Cell: ({ value }) => {
           console.log("Fecha de Envío en tabla:", value); // Agregar console.log para verificar la fecha
           return isValid(new Date(value)) ? format(new Date(value), 'dd/MM/yyyy') : 'Fecha inválida';
@@ -85,8 +80,12 @@ const SortableTable2 = () => {
     useTable({ columns, data: filteredData }, useSortBy);
 
   const handleEdit = (row) => {
-    setEditData(row.original);
-    setSelectedRowId(row.original.id);
+    if (editData && selectedRowId === row.original.id) {
+      setEditData(null);
+    } else {
+      setEditData(row.original);
+      setSelectedRowId(row.original.id);
+    }
   };
 
   const handleDelete = async (row) => {
@@ -180,14 +179,14 @@ const SortableTable2 = () => {
       </div>
       <table
         {...getTableProps()}
-        className="border-collapse w-full"
+        className="w-full"
       >
         <thead className="bg-lime-600 text-orange-100">
           {headerGroups.map((headerGroup) => (
             <tr
               key={headerGroup.id} // Pasar la propiedad key directamente
               {...headerGroup.getHeaderGroupProps()}
-              className="border-b border-[#545f47]"
+              className="grid w-screen grid-cols-3"
             >
               {headerGroup.headers.map((column) => (
                 <th
@@ -219,19 +218,10 @@ const SortableTable2 = () => {
                   handleRowClick={handleRowClick}
                   handleEdit={handleEdit}
                   handleDelete={handleDelete}
+                  editData={editData}
+                  handleEditChange={handleEditChange}
+                  handleEditSubmit={handleEditSubmit}
                 />
-                {editData && selectedRowId === row.original.id && (
-                  <tr key={`edit-${row.id}`}>
-                    <td colSpan={columns.length}>
-                      <EditForm
-                        editData={editData}
-                        handleEditChange={handleEditChange}
-                        handleEditSubmit={handleEditSubmit}
-                        columns={columns}
-                      />
-                    </td>
-                  </tr>
-                )}
               </React.Fragment>
             );
           })}
