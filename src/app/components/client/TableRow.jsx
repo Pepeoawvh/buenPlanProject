@@ -6,7 +6,7 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete })
     <tr
       key={row.id} // Pasar la propiedad key directamente
       {...row.getRowProps()}
-      className={`border-[0.5px] border-[#545f47] cursor-pointer ${isSelected ? 'bg-gray-200' : ''}`}
+      className={`border-b-[0.5px] border-[#545f47] cursor-pointer ${isSelected ? 'bg-gray-800' : ''}`}
       onClick={() => handleRowClick(row.original.id)}
     >
       {row.cells.map((cell) => {
@@ -24,17 +24,17 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete })
       })}
     </tr>
     {isSelected && (
-      <tr className="border-[0.5px] border-[#545f47] bg-gray-200">
+      <tr className=" bg-gray-800">
         <td colSpan={row.cells.length} className="">
           <div className="flex pl-12 justify-start space-x-24">
             <button
-              className="text-blue-500 border rounded-full h-full m-0 border-[#545f47] py-1 px-8"
+              className="text-blue-400 bg-black  rounded-full h-full m-0 py-1 px-8"
               onClick={() => handleEdit(row)}
             >
               <FaEdit />
             </button>
             <button
-              className="text-red-500 border rounded-full h-full m-0 border-[#545f47] py-1 px-8"
+              className="text-red-400 bg-black rounded-full h-full m-0  py-1 px-8"
               onClick={() => handleDelete(row)}
             >
               <FaTrash />

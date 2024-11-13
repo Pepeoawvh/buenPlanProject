@@ -36,7 +36,11 @@ const SortableTable2 = () => {
       { Header: "Teléfono", accessor: "telefono" },
       { Header: "Institución", accessor: "institucion", Cell: ({ value }) => abbreviateText(value, 15) },
       { Header: "Clínica", accessor: "clinica" },
-      { Header: "Fecha de Envío", accessor: "createdAt", Cell: ({ value }) => isValid(new Date(value)) ? format(new Date(value), 'dd/MM/yyyy') : 'Fecha inválida' },
+      { Header: "Fecha de Envío", accessor: "createdAt", Cell: ({ value }) => {
+          console.log("Fecha de Envío en tabla:", value); // Agregar console.log para verificar la fecha
+          return isValid(new Date(value)) ? format(new Date(value), 'dd/MM/yyyy') : 'Fecha inválida';
+        }
+      },
     ],
     []
   );
@@ -45,7 +49,8 @@ const SortableTable2 = () => {
     const fetchData = async () => {
       const snapshot = await firestoreDB.collection('formubuenplan').get();
       const data = snapshot.docs.map(doc => {
-        const createdAt = doc.metadata.createTime ? doc.metadata.createTime.toDate() : new Date();
+        const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
+        console.log("Fecha de creación obtenida:", createdAt); // Agregar console.log para verificar la fecha
         return { id: doc.id, ...doc.data(), createdAt };
       });
       setData(data);
@@ -201,7 +206,7 @@ const SortableTable2 = () => {
         </thead>
         <tbody
           {...getTableBodyProps()}
-          className="text- whitespace-nowrap overflow-hidden text-ellipsis"
+          className=" whitespace-nowrap overflow-hidden text-ellipsis"
         >
           {rows.map((row) => {
             prepareRow(row);
@@ -236,4 +241,4 @@ const SortableTable2 = () => {
   );
 };
 
-export default SortableTable2;  
+export default SortableTable2;

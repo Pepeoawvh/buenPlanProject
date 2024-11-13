@@ -14,10 +14,10 @@ const AdminBP = () => {
       const snapshot = await dataRef.get();
       const dataList = [];
       snapshot.forEach((doc) => {
-        const createdAt = doc.metadata.createTime ? doc.metadata.createTime.toDate() : new Date();
+        const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
         dataList.push({ ...doc.data(), id: doc.id, createdAt });
       });
-      console.log(dataList); // Agregar console.log para mostrar los datos obtenidos
+      console.log("Datos obtenidos:", dataList); // Agregar console.log para mostrar los datos obtenidos
       setData(dataList);
     };
     fetchData().catch((error) => {
@@ -58,14 +58,18 @@ const AdminBP = () => {
       },
       {
         Header: "Fecha de Envío",
-        accessor: "fechaEnvio",
+        accessor: "createdAt",
+        Cell: ({ value }) => {
+          console.log("Fecha de Envío:", value); // Agregar console.log para verificar la fecha
+          return value ? new Date(value).toLocaleDateString() : 'Fecha inválida';
+        },
       },
     ],
     []
   );
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 h-screen">
       <div className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
         <h1 className="text-center text-2xl my-4 pl-4">FORMULARIOS BUEN PLAN</h1>
         <SortableTable2 columns={columns} data={data} />

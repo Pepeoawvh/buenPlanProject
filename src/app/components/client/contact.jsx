@@ -5,6 +5,7 @@ import { firestoreDB } from '../../firebase/config.js';
 import { bebas } from '../../ui/fonts.js';
 import styles from '../styles/animations.module.css';
 import emailjs from 'emailjs-com';
+import { serverTimestamp } from 'firebase/firestore';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -48,8 +49,11 @@ const Contact = () => {
         } else {
             setError('');
             try {
-                await firestoreDB.collection('formubuenplan').add(formData);
-                console.log('Formulario enviado');
+                const docRef = await firestoreDB.collection('formubuenplan').add({
+                    ...formData,
+                    createdAt: serverTimestamp() // Agrega la fecha de creación
+                });
+                console.log('Formulario enviado', docRef.id);
                 emailjs.sendForm('service_d4dgdka', 'template_40p4jtg', form.current, 'An7izEtXbf95R0oIn')
                     .then((result) => {
                         console.log(result.text);
