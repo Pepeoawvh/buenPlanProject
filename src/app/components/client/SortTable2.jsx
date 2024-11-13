@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTable, useSortBy } from "react-table";
 import { format, isValid } from "date-fns";
-import { firestoreDB } from '../../firebase/config.js';
+import { firestoreDB } from "../../firebase/config.js";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import EditForm from "./EditForm";
@@ -19,7 +19,7 @@ const SortableTable2 = () => {
     if (text.length > maxLength) {
       return (
         <span className="tooltip">
-          {text.slice(0, maxLength) + '...'}
+          {text.slice(0, maxLength) + "..."}
           <span className="tooltiptext">{text}</span>
         </span>
       );
@@ -30,21 +30,33 @@ const SortableTable2 = () => {
   const columns = React.useMemo(
     () => [
       { Header: "Nombre", accessor: "nombre" },
-      { Header: "Institución", accessor: "institucion", Cell: ({ value }) => abbreviateText(value, 15) },
-      { Header: "Fecha de Envío", accessor: "createdAt", Cell: ({ value }) => {
-          console.log("Fecha de Envío en tabla:", value); // Agregar console.log para verificar la fecha
-          return isValid(new Date(value)) ? format(new Date(value), 'dd/MM/yyyy') : 'Fecha inválida';
-        }
+      {
+        Header: "Institución",
+        accessor: "institucion",
+        Cell: ({ value }) => abbreviateText(value, 15),
       },
+      {
+        Header: "Fecha de Envío",
+        accessor: "createdAt",
+        Cell: ({ value }) => {
+          console.log("Fecha de Envío en tabla:", value); // Agregar console.log para verificar la fecha
+          return isValid(new Date(value))
+            ? format(new Date(value), "dd/MM/yyyy")
+            : "Fecha inválida";
+        },
+      },
+      { Header: "Estado", accessor: "estado" },
     ],
     []
   );
 
   useEffect(() => {
     const fetchData = async () => {
-      const snapshot = await firestoreDB.collection('formubuenplan').get();
-      const data = snapshot.docs.map(doc => {
-        const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
+      const snapshot = await firestoreDB.collection("formubuenplan").get();
+      const data = snapshot.docs.map((doc) => {
+        const createdAt = doc.data().createdAt
+          ? doc.data().createdAt.toDate()
+          : new Date();
         console.log("Fecha de creación obtenida:", createdAt); // Agregar console.log para verificar la fecha
         return { id: doc.id, ...doc.data(), createdAt };
       });
@@ -56,9 +68,11 @@ const SortableTable2 = () => {
   }, []);
 
   useEffect(() => {
-    const results = data.filter(row =>
-      columns.some(column =>
-        (row[column.accessor] ? row[column.accessor].toString() : "").toLowerCase().includes(searchTerm.toLowerCase())
+    const results = data.filter((row) =>
+      columns.some((column) =>
+        (row[column.accessor] ? row[column.accessor].toString() : "")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
       )
     );
     setFilteredData(results);
@@ -66,7 +80,7 @@ const SortableTable2 = () => {
 
   useEffect(() => {
     if (selectedMonth) {
-      const filteredByMonth = data.filter(item => {
+      const filteredByMonth = data.filter((item) => {
         const itemMonth = new Date(item.createdAt).toISOString().slice(0, 7);
         return itemMonth === selectedMonth;
       });
@@ -95,7 +109,9 @@ const SortableTable2 = () => {
         .doc(row.original.id)
         .delete();
       alert("Registro eliminado exitosamente.");
-      setFilteredData(filteredData.filter(item => item.id !== row.original.id));
+      setFilteredData(
+        filteredData.filter((item) => item.id !== row.original.id)
+      );
     } catch (error) {
       console.error("Error al eliminar el registro:", error);
       alert("Hubo un problema al eliminar el registro.");
@@ -118,7 +134,9 @@ const SortableTable2 = () => {
         .doc(editData.id)
         .update(editData);
       alert("Registro actualizado exitosamente.");
-      setFilteredData(filteredData.map(item => (item.id === editData.id ? editData : item)));
+      setFilteredData(
+        filteredData.map((item) => (item.id === editData.id ? editData : item))
+      );
       setEditData(null);
       setSelectedRowId(null);
     } catch (error) {
@@ -141,8 +159,8 @@ const SortableTable2 = () => {
     const doc = new jsPDF();
     doc.text("Resumen de Formularios", 20, 10);
     doc.autoTable({
-      head: [columns.map(col => col.Header)],
-      body: filteredData.map(row => columns.map(col => row[col.accessor])),
+      head: [columns.map((col) => col.Header)],
+      body: filteredData.map((row) => columns.map((col) => row[col.accessor])),
     });
     doc.save("formularios.pdf");
   };
@@ -156,7 +174,7 @@ const SortableTable2 = () => {
       <div className="mb-4 px-4 flex items-center space-x-4">
         <button
           onClick={generatePDF}
-          className="h-8 mt-2 text-[#ffffef] px-8 rounded-md bg-gradient-to-r from-cyan-600 to-cyan-800 shadow-md hover:bg-cyan-500"
+          className="h-fit mt-2 text-[#ffffef] px-8 rounded-md bg-gradient-to-r from-cyan-600 to-cyan-800 shadow-md hover:bg-cyan-500"
         >
           Descargar Tabla Actual
         </button>
@@ -169,24 +187,21 @@ const SortableTable2 = () => {
         />
         <label className="block mb-4">
           Mes:
-          <input 
-            type="month" 
-            value={selectedMonth} 
-            onChange={(e) => setSelectedMonth(e.target.value)} 
-            className="ml-2 p-2 border rounded w-auto border-[#3d4f4a]" 
+          <input
+            type="month"
+            value={selectedMonth}
+            onChange={(e) => setSelectedMonth(e.target.value)}
+            className="ml-2 p-2 border rounded w-auto border-[#3d4f4a]"
           />
         </label>
       </div>
-      <table
-        {...getTableProps()}
-        className="w-full"
-      >
+      <table {...getTableProps()} className="w-full">
         <thead className="bg-lime-600 text-orange-100">
           {headerGroups.map((headerGroup) => (
             <tr
               key={headerGroup.id} // Pasar la propiedad key directamente
               {...headerGroup.getHeaderGroupProps()}
-              className="grid w-screen grid-cols-3"
+              className="grid w-screen grid-cols-4"
             >
               {headerGroup.headers.map((column) => (
                 <th
@@ -196,7 +211,11 @@ const SortableTable2 = () => {
                 >
                   {column.render("Header")}
                   <span>
-                    {column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : ""}
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? " 🔽"
+                        : " 🔼"
+                      : ""}
                   </span>
                 </th>
               ))}

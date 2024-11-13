@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState, useRef } from 'react';
 import { firestoreDB } from '../../firebase/config.js';
 import { bebas } from '../../ui/fonts.js';
@@ -15,7 +14,8 @@ const Contact = () => {
         edad: '',
         telefono: '',
         institucion: '',
-        clinica: ''
+        clinica: '',
+        estado: 'No contactado' // Estado por defecto
     });
 
     const [error, setError] = useState('');

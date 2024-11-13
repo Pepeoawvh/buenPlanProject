@@ -40,7 +40,7 @@ const NavBar = () => {
           </div>
         </Link>
         <div>
-          <h1 className={`${questrial.className} text-[#2694e7] text-xl`}> </h1>
+          <h1 className={`${questrial.className} text-[#2694e7] text-xl`}></h1>
         </div>
         <ul
           className={`grid ${

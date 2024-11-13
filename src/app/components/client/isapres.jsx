@@ -5,7 +5,7 @@ import {bebas} from "../../ui/fonts.js"
 
 const Isapres = () => {
   return (
-    <div className='grid w-full p-10 text-[#8d4244] '>
+    <div className='grid w-full p-10 text-[#642073] '>
     <div className='grid grid-cols-[auto,auto]'>
       <Image
         src="/img/tabla.svg"
