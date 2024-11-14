@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../styles/carrusel.module.css';
 
-const Carrusel = ({ interval = 4000 }) => {
+const Carrusel = ({ interval = 5000 }) => {
   const images = [
     '/img/gal1.svg',
     '/img/gal2.svg',

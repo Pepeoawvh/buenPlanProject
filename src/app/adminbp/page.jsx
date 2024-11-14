@@ -6,25 +6,38 @@ import Contact from "../components/client/contact.jsx";
 
 const AdminBP = () => {
   const [data, setData] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const db = firestoreDB;
-      const dataRef = db.collection("formubuenplan");
-      const snapshot = await dataRef.get();
-      const dataList = [];
-      snapshot.forEach((doc) => {
-        const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
-        dataList.push({ ...doc.data(), id: doc.id, createdAt });
-      });
-      console.log("Datos obtenidos:", dataList); // Agregar console.log para mostrar los datos obtenidos
-      setData(dataList);
-    };
-    fetchData().catch((error) => {
-      alert("Hubo un problema, revisar consola");
-      console.log(error);
-    });
+    const password = prompt("Por favor, ingrese la contraseña:");
+    if (password === "adminbp") {
+      setIsAuthenticated(true);
+    } else {
+      alert("Contraseña incorrecta. No tienes acceso a esta página.");
+      window.location.href = "https://buen-plan-project.vercel.app"; // Redirige a otra página
+    }
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const fetchData = async () => {
+        const db = firestoreDB;
+        const dataRef = db.collection("formubuenplan");
+        const snapshot = await dataRef.get();
+        const dataList = [];
+        snapshot.forEach((doc) => {
+          const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
+          dataList.push({ ...doc.data(), id: doc.id, createdAt });
+        });
+        console.log("Datos obtenidos:", dataList); // Agregar console.log para mostrar los datos obtenidos
+        setData(dataList);
+      };
+      fetchData().catch((error) => {
+        alert("Hubo un problema, revisar consola");
+        console.log(error);
+      });
+    }
+  }, [isAuthenticated]);
 
   const columns = React.useMemo(
     () => [
@@ -67,6 +80,10 @@ const AdminBP = () => {
     ],
     []
   );
+
+  if (!isAuthenticated) {
+    return null; // No renderiza nada si no está autenticado
+  }
 
   return (
     <div className="bg-gray-900 h-screen w-screen">

@@ -58,6 +58,17 @@ nav ul {
   align-items: flex-start;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
 @media screen and (max-width: 768px) {
   header {
     margin-top: 0px;
@@ -72,7 +83,7 @@ nav ul {
     z-index: 3;
     width: 100vw;
     justify-self: center;
-    background-color: 02031e;
+    background-color: #e9faff;
   }
   nav a {
     justify-self: left;
@@ -84,13 +95,8 @@ nav ul {
   }
 
   .logo {
-    display: grid;
-    align-self: center;
-    justify-self: center;
-    width: 50px;
-    height: 50px;
-    margin: 0px;
-    margin-left: 50px;
+    width: 30px;
+    height: 30px;
   }
 
   .navItem {
@@ -140,6 +146,33 @@ nav ul {
 
   .navToggle.open > span:nth-child(3) {
     transform: rotate(-45deg) translate(-5px, 1px);
+  }
+
+  .navButton {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navItem {
+    display: none !important;
+  }
+
+  .navToggle {
+    display: none !important;
+  }
+
+  .navButton {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #2694e7;
+    font-weight: bold;
+  }
+
+  .navButton:hover {
+    background-color: #e9faff;
+    border-radius: 5px;
   }
 }
 

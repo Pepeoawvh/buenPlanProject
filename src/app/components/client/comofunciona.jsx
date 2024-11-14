@@ -3,13 +3,16 @@ import Image from 'next/image'
 
 const Comofunciona = () => {
   return (
-    <div className='bg-[#3795e3] shadow-md'><Image
-        src="/img/comofunciona.png"
-        alt=""
-        width={1000}
-        height={1000}
-        className=""
-    /></div>
+    <div className='grid w-screen justify-items-center'>
+      <div className='grid bg-[#3795e3] shadow-md justify-items-center h-fit md:w-3/4 '>
+      <Image
+          src="/img/comofunciona.png"
+          alt=""
+          width={600}
+          height={600}
+          className=""
+      /></div>
+    </div>
   )
 }
 

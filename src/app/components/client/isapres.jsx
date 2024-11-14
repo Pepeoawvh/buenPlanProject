@@ -1,29 +1,39 @@
-import React from 'react'
-import Image from 'next/image'
-import {bebas} from "../../ui/fonts.js"
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import styles from '../styles/carrusel.module.css';
 
+const Isapres = ({ interval = 4000 }) => {
+  const images = [
+    '/img/isap1.svg',
+    '/img/isap2.svg',
+    '/img/isap3.svg',
 
-const Isapres = () => {
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, interval);
+
+    return () => clearInterval(slideInterval);
+  }, [images.length, interval]);
+
   return (
-    <div className='grid w-full p-10 text-[#642073] '>
-    <div className='grid grid-cols-[auto,auto]'>
-      <Image
-        src="/img/tabla.svg"
-        alt=""
-        width={120}
-        height={120}
-        className="col-span-1 justify-self-center animate-wiggle animate-infinite animate-duration-[1500ms]"
-      /><div className={`${bebas.className} col-span-1  self-center justify-self-start text-center text-2xl`}> Cotizamos en todas las Isapres </div>
+    <div className={styles.carousel}>
+      <div
+        className={styles.carouselInner}
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <div key={index} className={styles.carouselItem}>
+            <Image src={image} alt={`Slide ${index}`} fill className={styles.image} />
+          </div>
+        ))}
+      </div>
     </div>
-    <Image
-        src="/img/isapres.svg"
-        alt=""
-        width={800}
-        height={800}
-        className=""
-    /></div>
+  );
+};
 
-  )
-}
-
-export default Isapres
+export default Isapres;

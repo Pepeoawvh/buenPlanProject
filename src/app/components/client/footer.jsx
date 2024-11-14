@@ -2,6 +2,7 @@ import React from 'react';
 import { bebas } from "../../ui/fonts.js";
 import styles from '../styles/animations.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -24,6 +25,15 @@ const Footer = () => {
             <li className={`${styles.zoomImage} text-white`}>Dirección: Calle Falsa 123, Santiago, Chile</li>
           </ul>
         </div>
+<div className='grid text-white self-end justify-items-center'>  
+<span>Certificados por</span>
+<Image
+  src="/img/superint.svg"
+  alt=""
+  width={200}
+  height={200}
+  className="justify-self-center"
+/>     </div>
       </div>
       <div className='text-center text-white mt-8'>
         <p>&copy; {new Date().getFullYear()} BuenPlanCL. Todos los derechos reservados.</p>
