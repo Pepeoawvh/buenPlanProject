@@ -6,7 +6,7 @@ const Banner = () => {
     <div id='banner' className=''>
       <Image
         src="/img/banner3.png"
-        alt=""
+        alt="Banner"
         width={1000}
         height={1000}
         className={styles.zoomImage}

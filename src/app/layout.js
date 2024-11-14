@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import "./globals.css";
 
-
 export const metadata = {
   title: "Buen Plan CL",
   description: "BuenPlan Project",

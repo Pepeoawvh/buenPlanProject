@@ -35,8 +35,8 @@ const NavBar = () => {
         className="grid h-auto grid-cols-3 items-center py-2 justify-items-center shadow-md"
       >
         <Link href="/">
-          <div className="select-none pl-5">
-            <Image width={300} height={300} alt="Logo" src="img/buenplan3.svg" />
+          <div className="select-none w-full h-full pl-5">
+            <Image width={500} height={500} alt="Logo" src="/img/buenplan3.svg" className="w-auto h-auto" />
           </div>
         </Link>
         <div>
@@ -51,7 +51,7 @@ const NavBar = () => {
         >
           <div className="grid grid-cols-1 justify-items-center items-center">
             <div className="select-none pl-5">
-              <Image width={150} height={150} alt="Logo" src="img/buenplan3.svg" />
+              <Image width={150} height={150} alt="Logo" src="/img/buenplan3.svg" className="w-auto h-auto" />
             </div>
           </div>
           <Link

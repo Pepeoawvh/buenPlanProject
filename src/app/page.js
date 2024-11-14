@@ -1,7 +1,7 @@
+"use client"
 import Header from './components/client/header';
 import Hero from './components/client/hero';
 import Services from './components/client/services';
-import ComoFunciona from './components/client/comofunciona';
 import Testimonials from './components/client/testimonials';
 import Isapres from './components/client/isapres';
 import About from './components/client/about';
@@ -9,6 +9,8 @@ import Contact from './components/client/contact';
 import WspButton from './components/client/WspButton';
 import Banner from './components/client/banner';
 import Comofunciona from './components/client/comofunciona';
+import Carrusel from './components/client/carrusel';
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 
 export default function Home() {
@@ -18,9 +20,10 @@ export default function Home() {
       <Header/>
       <Hero />
       <Banner/>
-      <Comofunciona/>
+      <Comofunciona />
       <Isapres/>
       <Contact />
+      <Carrusel interval={2000}/>
       <About />      
       <WspButton />      
       <Testimonials />
