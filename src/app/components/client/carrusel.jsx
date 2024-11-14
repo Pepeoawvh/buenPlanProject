@@ -1,73 +1,41 @@
-import React from "react";
-import { TECarousel, TECarouselItem } from "tw-elements-react";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import styles from '../styles/carrusel.module.css';
 
-const Carrusel = ({ interval = 5000 }) => {
+const Carrusel = ({ interval = 4000 }) => {
+  const images = [
+    '/img/gal1.svg',
+    '/img/gal2.svg',
+    '/img/gal3.svg',
+    '/img/gal4.svg',
+    '/img/gal5.svg',
+    '/img/gal6.svg',
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, interval);
+
+    return () => clearInterval(slideInterval);
+  }, [images.length, interval]);
+
   return (
-    <TECarousel ride="carousel" interval={interval}>
-      <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-        <TECarouselItem
-          itemID={1}
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-        >
-          <img
-            src="/img/gal1.svg"
-            className="block w-full"
-            alt="..."
-          />
-        </TECarouselItem>
-        <TECarouselItem
-          itemID={2}
-          className="relative float-left hidden -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-        >
-          <img
-            src="/img/gal2.svg"
-            className="block w-full"
-            alt="..."
-          />
-        </TECarouselItem>
-        <TECarouselItem
-          itemID={3}
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-        >
-          <img
-            src="/img/gal3.svg"
-            className="block w-full"
-            alt="..."
-          />
-        </TECarouselItem>
-        <TECarouselItem
-          itemID={4}
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[6000ms] ease-in-out motion-reduce:transition-none"
-        >
-          <img
-            src="/img/gal4.svg"
-            className="block w-full"
-            alt="..."
-          />
-        </TECarouselItem>
-        <TECarouselItem
-          itemID={5}
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-        >
-          <img
-            src="/img/gal5.svg"
-            className="block w-full"
-            alt="..."
-          />
-        </TECarouselItem>
-        <TECarouselItem
-          itemID={6}
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-        >
-          <img
-            src="/img/gal6.svg"
-            className="block w-full"
-            alt="..."
-          />
-        </TECarouselItem>
+    <div className={styles.carousel}>
+      <div
+        className={styles.carouselInner}
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <div key={index} className={styles.carouselItem}>
+            <Image src={image} alt={`Slide ${index}`} fill className={styles.image} />
+          </div>
+        ))}
       </div>
-    </TECarousel>
+    </div>
   );
-}
+};
 
 export default Carrusel;

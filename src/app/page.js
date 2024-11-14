@@ -1,7 +1,6 @@
 "use client"
 import Header from './components/client/header';
 import Hero from './components/client/hero';
-import Services from './components/client/services';
 import Testimonials from './components/client/testimonials';
 import Isapres from './components/client/isapres';
 import About from './components/client/about';
@@ -10,6 +9,7 @@ import WspButton from './components/client/WspButton';
 import Banner from './components/client/banner';
 import Comofunciona from './components/client/comofunciona';
 import Carrusel from './components/client/carrusel';
+import Footer from './components/client/footer';
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 
@@ -27,7 +27,7 @@ export default function Home() {
       <About />      
       <WspButton />      
       <Testimonials />
-      <Services />
+      <Footer />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
     {/* footer clasico */}

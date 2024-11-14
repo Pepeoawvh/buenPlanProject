@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { firestoreDB } from '../../firebase/config.js';
 import EditForm from "./EditForm";
 import { FaEdit, FaTrash, FaWhatsapp } from "react-icons/fa";
@@ -42,7 +42,7 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
                     value={newState}
                     onChange={handleStateChange}
                     onBlur={() => setIsEditingState(false)}
-                    className="ml-2 bg-slate-950"
+                    className="ml-2"
                     onClick={(e) => e.stopPropagation()} // Detener la propagación del evento de clic
                   >
                     <option value="No contactado">No contactado</option>
