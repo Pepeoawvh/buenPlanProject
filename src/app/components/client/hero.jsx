@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section id='hero' className='grid w-full justify-items-center'>
       <div className='grid auto-rows-min gap-4 items-center justify-items-center ] p-2 py-6 bg-white md:py-0 md:mt-3'>
-        <h1 className={`${bebas.className} px-8 text-[#642073] text-center text-5xl py-3`}>Asesoría Profesional en Planes de Salud</h1>
+        <h1 className={`${bebas.className} px-8 text-[#642073] text-center text-4xl py-3`}>Asesoría Profesional en Planes de Salud</h1>
         <p className='text-center text-[#004aad]  text-2xl px-4 py-2'>Te ayudamos a encontrar un buen plan</p>
         <Link href="#contact" passHref>
       <button

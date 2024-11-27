@@ -35,13 +35,13 @@ const NavBar = () => {
         className="grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center shadow-md"
       >
         <Link href="/" className="w-fit col-span-1 md:col-span-1 md md:justify-self-start md:ml-24">
-          <div className="select-none pl-5">
+          <div className="select-none pl-5 ">
             <Image
               width={700}
               height={700}
               alt="Logo"
-              src="/img/buenplan3.svg"
-              className="md:w-auto md:h-24"
+              src="/img/BPlogo1.svg"
+              className="md:w-auto md:h-24 "
             />
           </div>
         </Link>
@@ -65,34 +65,34 @@ const NavBar = () => {
                 width={200}
                 height={200}
                 alt="Logo"
-                src="/img/buenplan3.svg"
-                className=""
+                src="/img/BPlogo1.svg"
+                className=" hover:animate"
               />
             </div>
           </div>
           <Link
-            className="grid hover:bg-[#ffeae1] bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/"
             onClick={handleLinkClick}
           >
             <li className="">Inicio</li>
           </Link>
           <Link
-            className="grid w-full hover:bg-[#ffeae1] bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
+            className="grid w-full hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
             href="#about"
             onClick={handleLinkClick}
           >
             <li className="">Quienes somos</li>
           </Link>
           <Link
-            className="grid hover:bg-[#ffeae1] bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="#contact"
             onClick={handleLinkClick}
           >
             <li className="">Contáctanos</li>
           </Link>
           <Link
-            className="grid hover:bg-[#ffeae1] bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="#faq"
             onClick={handleLinkClick}
           >

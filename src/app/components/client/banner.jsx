@@ -6,7 +6,7 @@ const Banner = () => {
     <div className='grid justify-items-center'>
       <div id='banner' className='grid  justify-items-center md:w-3/4'>
         <Image
-          src="/img/banner3.png"
+          src="/img/banner3.svg"
           alt="Banner"
           width={1000}
           height={1000}
