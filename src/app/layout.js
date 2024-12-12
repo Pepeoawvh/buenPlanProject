@@ -1,5 +1,7 @@
-import 'dotenv/config';
+import "dotenv/config";
 import "./globals.css";
+import Header from "./components/client/header";
+import Footer from "./components/client/footer";
 
 export const metadata = {
   title: "Buen Plan CL",
@@ -9,10 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
+      <body className="antialiased">
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

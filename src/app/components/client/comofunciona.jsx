@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import BotonPreguntas from './botonPreguntas'
 
 const Comofunciona = () => {
   return (
@@ -9,9 +10,12 @@ const Comofunciona = () => {
           src="/img/comofunciona.svg"
           alt=""
           width={600}
-          height={600}
+          height={600}  
           className=""
-      /></div>
+      />
+        
+      </div>
+      <BotonPreguntas/>
     </div>
   )
 }

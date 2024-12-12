@@ -14,15 +14,14 @@ const Footer = () => {
           <ul className='grid text-[#8d4244] gap-4'>
             <li className={`${styles.zoomImage} text-white`}><Link href="/"  >Inicio</Link></li>
             <li className={`${styles.zoomImage} text-white`}><Link href="#about" >Quienes Somos</Link></li>
-            <li className={`${styles.zoomImage} text-white`}><Link href="#contact" >Solicitar Información</Link></li>
           </ul>
         </div>
         <div className='text-center md:text-left'>
           <h2 className={`${bebas.className} text-white text-2xl py-4`}>Contacto</h2>
           <ul className='grid text-[#8d4244] gap-4'>
-            <li className={`${styles.zoomImage} text-white`}>Email: contacto@buenplancl.com</li>
+            <li className={`${styles.zoomImage} text-white`}>Email: contacto@buenplan.com</li>
             <li className={`${styles.zoomImage} text-white`}>Teléfono: +56 9 1234 5678</li>
-            <li className={`${styles.zoomImage} text-white`}>Dirección: Calle Falsa 123, Santiago, Chile</li>
+            <li className={`${styles.zoomImage} text-white`}>Dirección: Santiago, Chile</li>
           </ul>
         </div>
 <div className='grid text-white self-end justify-items-center'>  
@@ -35,7 +34,7 @@ const Footer = () => {
   className="justify-self-center"
 />     </div>
       </div>
-      <div className='text-center text-white mt-8'>
+      <div className='text-center text-sm text-white mt-8'>
         <p>&copy; {new Date().getFullYear()} BuenPlanCL. Todos los derechos reservados.</p>
       </div>
     </footer>

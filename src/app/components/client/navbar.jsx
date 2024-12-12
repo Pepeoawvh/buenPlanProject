@@ -93,7 +93,7 @@ const NavBar = () => {
           </Link>
           <Link
             className="grid hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
-            href="#faq"
+            href="/faq"
             onClick={handleLinkClick}
           >
             <li className="">Preguntas frecuentes</li>
