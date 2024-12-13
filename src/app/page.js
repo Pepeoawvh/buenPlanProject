@@ -13,7 +13,7 @@ import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-min">
+    <div className="grid grid-rows-min ">
       <main className="grid grid-rows-min items-center sm:items-start w-full h-full bg-white">
 
       <Hero />

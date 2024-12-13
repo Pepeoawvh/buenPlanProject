@@ -29,10 +29,10 @@ const NavBar = () => {
 
   return (
     <>
-      <div className={`blur-background ${isOpen && "open"}`} />
+      <div className={` blur-background ${isOpen && "open"} `} />
       <nav
         ref={navRef}
-        className="grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center shadow-md"
+        className=" grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center shadow-md "
       >
         <Link href="/" className="w-fit col-span-1 md:col-span-1 md md:justify-self-start md:ml-24">
           <div className="select-none pl-5 ">

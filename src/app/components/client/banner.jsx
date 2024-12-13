@@ -3,7 +3,7 @@ import styles from '../styles/animations.module.css';
 
 const Banner = () => {
   return (
-    <div className='grid justify-items-center'>
+    <div className='animate-fade animate-once animate-duration-[1300ms] animate-delay-300 grid justify-items-center aspect-auto'>
       <div id='banner' className='grid  justify-items-center md:w-3/4'>
         <Image
           src="/img/banner3.svg"

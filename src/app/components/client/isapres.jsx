@@ -21,7 +21,7 @@ const Isapres = ({ interval = 4000 }) => {
   }, [images.length, interval]);
 
   return (
-    <div className={styles.carousel}>
+    <div className={`aspect-auto ${styles.carousel}`}>
       <div
         className={styles.carouselInner}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
