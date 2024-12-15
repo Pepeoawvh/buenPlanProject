@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import { bebas } from "../../ui/fonts.js";
 import Link from "next/link";
 import styles from '../styles/animations.module.css';
@@ -11,7 +11,7 @@ const About = () => {
       >
         Acerca de Buen Plan
       </h2>
-      <div className="text-base mt-4 p-8 text-left bg-[#e9faff] leading-relaxed ">
+      <div className="text-base p-8 text-left bg-[#e9f5ff] leading-relaxed ">
         <p className="text-center">
           <strong>En Buen Plan brindamos un servicio <br/> 100% Gratuito.</strong>
         </p>

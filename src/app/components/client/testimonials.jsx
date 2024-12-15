@@ -11,7 +11,7 @@ const Testimonials = () => {
       </h2>
 
       <div className="grid my-8 mx-3 gap-5 auto-rows-min text-primary-900 text-base justify-items-center leading-relaxed">
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;La asesoría de Buen Plan fue muy rápida y clara. En
             pocos minutos me explicaron las opciones que mejor se adaptaban a mis
@@ -21,7 +21,7 @@ const Testimonials = () => {
             - Laura, Nutricionista, Las condes.
           </p>
         </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;Como mamá, siempre busco lo mejor para mi familia,
             especialmente cuando se trata de salud. Me ayudaron a encontrar
@@ -33,7 +33,7 @@ const Testimonials = () => {
             - Isabel, Mamá de dos niños pequeños, Providencia.
           </p>
         </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;Vivo en zona rural y siempre pensé que encontrar un buen
             plan de salud para mi familia sería complicado. La información que me dieron fue clara, y aunque
@@ -44,7 +44,7 @@ const Testimonials = () => {
             - Roberto, Cliente de Región del Libertador Bernardo O'Higgins.
           </p>
         </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;Vivo en zona rural y siempre pensé que encontrar un buen
             plan de salud para mi familia sería complicado. La información que me dieron fue clara, y aunque
@@ -55,7 +55,7 @@ const Testimonials = () => {
             - Roberto, Cliente de Región del Libertador Bernardo O'Higgins.
           </p>
         </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;Vivo en zona rural y siempre pensé que encontrar un buen
             plan de salud para mi familia sería complicado. La información que me dieron fue clara, y aunque
@@ -66,7 +66,7 @@ const Testimonials = () => {
             - Roberto, Cliente de Región del Libertador Bernardo O'Higgins.
           </p>
         </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;La asesoría fue rápida y clara. Me ayudaron a encontrar el plan
             perfecto para mi familia en minutos. Muy satisfecho con el
@@ -76,7 +76,7 @@ const Testimonials = () => {
             - Felipe, Médico General, Las Condes.
           </p>
         </div>
-        <div className=" grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9faff]">
+        <div className=" grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;Muy contenta con la rapidez y claridad de la asesoría. Todo el
             proceso fue muy eficiente y sin complicaciones.&quot;

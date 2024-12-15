@@ -32,7 +32,7 @@ const NavBar = () => {
       <div className={`blur-background ${isOpen && "open"} `} />
       <nav
         ref={navRef}
-        className=" grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center shadow-md"
+        className=" grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center shadow-md bg-[#d8ecff]"
       >
         <Link href="/" className="w-fit col-span-1 md:col-span-1 md md:justify-self-start md:ml-24">
           <div className="select-none pl-5 ">
@@ -57,7 +57,7 @@ const NavBar = () => {
           </Link>
         </div>
         <ul
-          className={`grid ${questrial.className} pr-6 sm:h-full bg-[#e9faff] text-xl sm:grid-cols-3 sm:pr-8 navItem ${isOpen && "open"} sm:mt-0 pt-12`}
+          className={`grid ${questrial.className} pr-6 sm:h-full bg-[#e9f5ff] text-xl sm:grid-cols-3 sm:pr-8 navItem ${isOpen && "open"} sm:mt-0 pt-12`}
         >
           <div className="grid grid-cols-1 justify-items-center items-center">
             <div className="select-none pl-5">
