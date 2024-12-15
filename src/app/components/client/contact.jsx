@@ -77,8 +77,8 @@ const Contact = () => {
     };
 
     return (
-        <section id='contact' className='grid justify-items-center text-center bg-[#e9faff] text-slate-600'>
-            <h2 className={`${questrial.className} text-xl my-4`}>Contactanos</h2>
+        <section id='contact' className='grid justify-items-center text-center bg-[#e9faff] text-[#0c369c]'>
+            <h2 className={`${bebas.className} text-3xl my-4`}> Asesoría 100% Gratuita</h2>
             {!isSubmitted ? (
                 <form ref={form} className='grid justify-items-center p-4 w-80 border-2 border-[#114ca9] rounded-md mb-4 shadow-md gap-2' onSubmit={handleSubmit}>
                     <input className='w-10/12 p-2 rounded-md border border-[#114ca9]' type="text" id="nombre" name="nombre" placeholder="Nombre" required autoComplete="name" value={formData.nombre} onChange={handleChange}/>

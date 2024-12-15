@@ -6,18 +6,18 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className='bg-[#2694e7] text-slate-900 py-8 px-4'>
+    <footer className='w-full bg-[#2694e7] text-slate-900 py-8 px-4'>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8'>
         
         <div className='text-center md:text-left'>
-          <h2 className={`${bebas.className} text-white text-2xl py-4`}>Enlaces Rápidos</h2>
           <ul className='grid text-[#8d4244] gap-4'>
             <li className={`${styles.zoomImage} text-white`}><Link href="/"  >Inicio</Link></li>
             <li className={`${styles.zoomImage} text-white`}><Link href="#about" >Quienes Somos</Link></li>
+            <li className={`${styles.zoomImage} text-white`}><Link href="/faq" >Preguntas Frecuentes</Link></li>
           </ul>
         </div>
         <div className='text-center md:text-left'>
-          <h2 className={`${bebas.className} text-white text-2xl py-4`}>Contacto</h2>
+          <h2 className={`${bebas.className} text-white text-2xl border-b-2 mb-4`}></h2>
           <ul className='grid text-[#8d4244] gap-4'>
             <li className={`${styles.zoomImage} text-white`}>Email: contacto@buenplan.com</li>
             <li className={`${styles.zoomImage} text-white`}>Teléfono: +56 9 1234 5678</li>

@@ -8,9 +8,9 @@ const PreguntasFrecuentes = () => {
   
 
   return (
-    <div>
+    <>
       <div
-        className={`${bebas.className} w-full bg-white text-[#0c369c] shadow-md py-8 `}
+        className={`${bebas.className} w-full bg-white text-[#0c369c] shadow-md py-8`}
       >
         <h1 className="text-4xl font-bold text-center mb-8 animate-fade-down animate-once animate-duration-[3000ms] animate-delay-200">
           Preguntas Frecuentes{" "}
@@ -66,15 +66,12 @@ const PreguntasFrecuentes = () => {
         </div>
         <div className="animate-fade-down animate-once animate-duration-[3000ms] animate-delay-[2700ms]"><Contact/></div>
       </div>
-
-
-      <div className={`${bebas.className} grid w-full items-center justify-items-center h-auto text-4xl bg-gradient-to-r from-[#2694e7] to-[#96c0e1] p-4 shadow-md `}>
-        <span className='  h-fit items-center justify-items-center text-center'>¿Aun Tienes dudas?</span>
-        <span className='  h-fit items-center justify-items-center text-center text-xl'>¡Contactanos con el boton de whatsapp en la esquina inferior izquierda!</span>
-        
+      <div className={`${bebas.className} grid w-full items-center justify-items-center h-auto text-4xl bg-gradient-to-b to-[#2694e7] from-[#96c0e1] p-4 shadow-md `}>
+        <p className='  h-fit items-center justify-items-center text-center'>¿Aun Tienes dudas?</p>
+        <p className='  h-fit items-center justify-items-center text-center text-xl'>¡Contactanos con el boton de whatsapp en la esquina inferior derecha!</p>
       </div>
       <WspButton/>
-    </div>
+    </>
   );
 };
 
