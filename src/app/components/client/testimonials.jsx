@@ -25,7 +25,7 @@ const Testimonials = () => {
           <p>
             &quot;Como mamá, siempre busco lo mejor para mi familia,
             especialmente cuando se trata de salud. Me ayudaron a encontrar
-            opciones de cobertura segun mis necesidades. El proceso fue rapido y personalizado.
+            opciones de cobertura según mis necesidades. El proceso fue rápido y personalizado.
             Ahora tengo un plan que conozco bien y en el que puedo confiar. Incluso se lo
             recomendé a otras amigas que son mamás.&quot;
           </p>
@@ -41,29 +41,7 @@ const Testimonials = () => {
             región y también quedaron muy contentos!&quot;
           </p>
           <p className="text-sm justify-self-end mt-2">
-            - Roberto, Cliente de Región del Libertador Bernardo O'Higgins.
-          </p>
-        </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
-          <p>
-            &quot;Vivo en zona rural y siempre pensé que encontrar un buen
-            plan de salud para mi familia sería complicado. La información que me dieron fue clara, y aunque
-            estamos lejos de la capital, recibí atención rápida y personalizada. Ahora conozco muy bien mi plan y me siento seguro. ¡Se los recomendé a amigos de la
-            región y también quedaron muy contentos!&quot;
-          </p>
-          <p className="text-sm justify-self-end mt-2">
-            - Roberto, Cliente de Región del Libertador Bernardo O'Higgins.
-          </p>
-        </div>
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
-          <p>
-            &quot;Vivo en zona rural y siempre pensé que encontrar un buen
-            plan de salud para mi familia sería complicado. La información que me dieron fue clara, y aunque
-            estamos lejos de la capital, recibí atención rápida y personalizada. Ahora conozco muy bien mi plan y me siento seguro. ¡Se los recomendé a amigos de la
-            región y también quedaron muy contentos!&quot;
-          </p>
-          <p className="text-sm justify-self-end mt-2">
-            - Roberto, Cliente de Región del Libertador Bernardo O'Higgins.
+            - Roberto, Cliente de Región del Libertador Bernardo O&apos;Higgins.
           </p>
         </div>
         <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
@@ -76,7 +54,7 @@ const Testimonials = () => {
             - Felipe, Médico General, Las Condes.
           </p>
         </div>
-        <div className=" grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
           <p>
             &quot;Muy contenta con la rapidez y claridad de la asesoría. Todo el
             proceso fue muy eficiente y sin complicaciones.&quot;
