@@ -5,7 +5,7 @@ import styles from "../styles/wsp.module.css";
 
 const WspButton = () => {
   const message = encodeURIComponent("Hola, vengo desde buenplan.cl, me interesa obtener mas información de sus servicios.");
-  const whatsappUrl = `https://wa.me/+56949866129?text=${message}`;
+  const whatsappUrl = `https://wa.me/+56961938185?text=${message}`;
 
   return (
     <div>
