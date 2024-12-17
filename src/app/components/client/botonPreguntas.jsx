@@ -1,7 +1,8 @@
 import React from 'react'
-import Image from 'next/image'
 import {bebas} from "../../ui/fonts.js"
 import Link from 'next/link'
+import styles from '../styles/animations.module.css'
+
 
 
 const BotonPreguntas = () => {
@@ -10,14 +11,12 @@ const BotonPreguntas = () => {
       <span className=' col-span-2 h-fit items-center justify-items-center text-center'>¿Tienes dudas?</span> 
 
       <Link href="/faq" passHref>
-        <div className='grid justify-items-center'>
-            <Image
-              src="/img/TapFAQ.svg"
-              alt=""
-              width={60}
-              height={60}
-              className="grid animate-jump animate-infinite animate-duration-[4000ms] animate-delay-[3000ms]"
-            />
+        <div className='col-span-1 mr-6 animation-jump'>
+          <button
+            className={` ${styles.zoomImage}  bg-[#2694e7] shadow-md justify-self-center border-4  border-white py-2 px-3 rounded-full text-xl pt-3 text-white`}
+            >
+            Preguntas Frecuentes
+          </button>
         </div>
       </Link>
     </div>

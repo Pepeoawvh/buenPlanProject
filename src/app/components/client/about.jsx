@@ -34,7 +34,7 @@ const About = () => {
           <strong>Para usar nuestro servicio solo debes </strong>
         </p>
         <Link href="#contact">
-          <button className={`${styles.zoomImage} md:my-4 bg-[#2694e7] text-white p-2 rounded-md shadow-sm m-2`}>
+          <button className={`${bebas.className} ${styles.zoomImage}  bg-[#2694e7] shadow-md justify-self-center border-4  border-white py-2 px-3 my-2 rounded-full text-xl w-3/4 pt-3 text-white`}>
             Completar el formulario
           </button>
         </Link>
