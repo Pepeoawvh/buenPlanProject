@@ -147,7 +147,7 @@ const Contact = () => {
             placeholder="Edad"
             required
             min="18"
-            max="120"
+            max="90"
             autoComplete="off"
             value={formData.edad}
             onChange={handleChange}
