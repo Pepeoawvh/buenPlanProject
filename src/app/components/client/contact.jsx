@@ -5,7 +5,6 @@ import { bebas } from "../../ui/fonts.js";
 import styles from "../styles/animations.module.css";
 import emailjs from "emailjs-com";
 import { serverTimestamp } from "firebase/firestore";
-import { questrial } from "../../ui/fonts.js";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -165,6 +164,9 @@ const Contact = () => {
             onChange={handleChange}
           />
 
+          <label htmlFor="institucion" className="w-10/12 text-left pl-2">
+
+          </label>
           <select
             className={`w-10/12 p-2 rounded-md border border-[#114ca9] ${formData.institucion === '' ? 'text-gray-400' : 'text-blue-800'}`}
             id="institucion"
