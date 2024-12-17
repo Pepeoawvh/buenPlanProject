@@ -19,7 +19,7 @@ const Footer = () => {
         <div className='text-center md:text-left'>
           <h2 className={`${bebas.className} text-white text-2xl border-b-2 mb-4`}></h2>
           <ul className='grid text-[#8d4244] gap-4'>
-            <li className={`${styles.zoomImage} text-white`}>Email: contacto@buenplan.com</li>
+            <li className={`${styles.zoomImage} text-white`}>Email: contacto@buenplan.cl</li>
             <li className={`${styles.zoomImage} text-white`}>Teléfono: +56 9 1234 5678</li>
             <li className={`${styles.zoomImage} text-white`}>Dirección: Santiago, Chile</li>
           </ul>

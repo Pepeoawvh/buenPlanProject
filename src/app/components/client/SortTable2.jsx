@@ -174,7 +174,7 @@ const SortableTable2 = () => {
       <div className="mb-4 px-4 flex items-center space-x-4">
         <button
           onClick={generatePDF}
-          className="h-fit mt-2 text-[#ffffef] px-8 rounded-md bg-gradient-to-r from-cyan-600 to-cyan-800 shadow-md hover:bg-cyan-500"
+          className="h-fit mt-2 px-8 rounded-md border-2 border-[#40a0ff] hover:bg-cyan-500"
         >
           Descargar Tabla Actual
         </button>
@@ -183,7 +183,7 @@ const SortableTable2 = () => {
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Buscar..."
-          className="h-8 mt-2 px-4 rounded-md border border-gray-300 shadow-md focus:outline-none"
+          className="h-8 mt-2 px-4 rounded-md border-2 border-[#40a0ff] shadow-md focus:outline-none"
         />
         <label className="block mb-4">
           Mes:
@@ -191,12 +191,12 @@ const SortableTable2 = () => {
             type="month"
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="ml-2 p-2 border rounded w-auto border-[#3d4f4a]"
+            className="ml-2 p-2 border-2 rounded w-auto border-[#40a0ff]"
           />
         </label>
       </div>
       <table {...getTableProps()} className="w-full">
-        <thead className="bg-lime-600 text-orange-100">
+        <thead className="bg-blue-600 text-yellow-400 tracking-wider">
           {headerGroups.map((headerGroup) => (
             <tr
               key={headerGroup.id} // Pasar la propiedad key directamente

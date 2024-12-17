@@ -29,7 +29,6 @@ const AdminBP = () => {
           const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
           dataList.push({ ...doc.data(), id: doc.id, createdAt });
         });
-        console.log("Datos obtenidos:", dataList); // Agregar console.log para mostrar los datos obtenidos
         setData(dataList);
       };
       fetchData().catch((error) => {
@@ -86,14 +85,15 @@ const AdminBP = () => {
   }
 
   return (
-    <div className="bg-gray-900 h-screen w-screen">
+    <div className="bg-white text-blue-900 h-full w-screen">
       <div className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
         <h1 className="text-center text-2xl my-4 pl-4">FORMULARIOS BUEN PLAN</h1>
         <SortableTable2 columns={columns} data={data} />
-        <div className="grid mb-4 mt-4 bg-lime-600 w-screen justify-items-center justify-self-start text-xl py-2">
+        <div className="grid mb-4 mt-4 bg-blue-600 w-screen justify-items-center justify-self-start text-xl py-2">
         </div>
       </div>
       <div className="grid justify-items-center">
+      <Contact/>
       </div>
     </div>
   );

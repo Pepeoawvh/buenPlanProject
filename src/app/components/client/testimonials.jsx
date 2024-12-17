@@ -10,8 +10,8 @@ const Testimonials = () => {
         Testimonios de nuestros clientes
       </h2>
 
-      <div className="grid my-8 mx-3 gap-5 auto-rows-min text-primary-900 text-base justify-items-center leading-relaxed">
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
+      <div className="grid my-8 mx-3 gap-5 auto-rows-min text-primary-900 text-base justify-items-center  leading-relaxed  md:text-center md:mx-40">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff] ">
           <p>
             &quot;La asesoría de Buen Plan fue muy rápida y clara. En
             pocos minutos me explicaron las opciones que mejor se adaptaban a mis

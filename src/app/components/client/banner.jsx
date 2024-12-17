@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../styles/carrusel.module.css';
 
-const Banner = ({ interval = 10000 }) => {
+const Banner = ({ interval = 7000 }) => {
   const images = [
     '/img/banner3.svg',
     '/img/Gratuito.svg',
