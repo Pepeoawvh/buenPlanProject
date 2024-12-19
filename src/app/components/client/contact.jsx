@@ -110,6 +110,7 @@ const Contact = () => {
             autoComplete="name"
             value={formData.nombre}
             onChange={handleChange}
+            aria-label="Nombre"
           />
 
           <input
@@ -123,6 +124,7 @@ const Contact = () => {
             autoComplete="off"
             value={formData.rut}
             onChange={handleChange}
+            aria-label="RUT"
           />
           {error && <p className="text-red-500">{error}</p>}
 
@@ -136,6 +138,7 @@ const Contact = () => {
             autoComplete="email"
             value={formData.email}
             onChange={handleChange}
+            aria-label="Email"
           />
 
           <input
@@ -150,6 +153,7 @@ const Contact = () => {
             autoComplete="off"
             value={formData.edad}
             onChange={handleChange}
+            aria-label="Edad"
           />
 
           <input
@@ -162,11 +166,9 @@ const Contact = () => {
             autoComplete="tel"
             value={formData.telefono}
             onChange={handleChange}
+            aria-label="Teléfono"
           />
 
-          <label htmlFor="institucion" className="w-10/12 text-left pl-2">
-
-          </label>
           <select
             className={`w-10/12 p-2 rounded-md border border-[#114ca9] ${formData.institucion === '' ? 'text-gray-400' : 'text-blue-800'}`}
             id="institucion"
@@ -174,6 +176,7 @@ const Contact = () => {
             value={formData.institucion}
             onChange={handleChange}
             required
+            aria-label="Institución"
           >
             <option value="" disabled>
               Selecciona tu institución actual
@@ -198,6 +201,7 @@ const Contact = () => {
             autoComplete="off"
             value={formData.clinica}
             onChange={handleChange}
+            aria-label="Clínica de Preferencia"
           />
 
           <button
