@@ -69,9 +69,9 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
         })}
       </tr>
       {isSelected && (
-        <div className="grid grid-cols-2 w-screen">
+        <div className="grid grid-cols-2   w-screen">
           <tr className="grid bg-blue-200 tracking-wider">
-            <td colSpan={row.cells.length} className="grid py-1 px-1 w-fit text-nowrap">
+            <td colSpan={row.cells.length} className="grid py-1 px-1 w-fit text-nowrap ">
               <div className="grid auto-rows-min ml-4 my-4 text-sm gap-4">
                 <div>
                   <strong>RUT:</strong> {row.original.rut}

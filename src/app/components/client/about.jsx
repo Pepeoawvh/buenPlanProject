@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section id="about" className="text-[#0c369c] ">
       <h2
-        className={`border-b-4 ${bebas.className} border-b-[#2694e7] text-center pb-2 text-3xl`}
+        className={`border-t-4 ${bebas.className}  mt-4 pt-3 border-[#2694e7] text-center pb-2 text-3xl`}
       >
         Acerca de Buen Plan
       </h2>

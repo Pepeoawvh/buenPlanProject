@@ -5,7 +5,7 @@ const Testimonials = () => {
   return (
     <section id="testimonios" className="text-[#0c369c] text-xl mt-8">
       <h2
-        className={`border-b-4 ${bebas.className} border-b-[#2694e7] text-center pb-2 text-3xl `}
+        className={`border-t-4 ${bebas.className}  border-[#2694e7] pt-6 text-center pb-2 text-3xl `}
       >
         Testimonios de nuestros clientes
       </h2>

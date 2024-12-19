@@ -8,8 +8,8 @@ const Hero = () => {
   return (
     <section id='hero' className='animate-fade animate-once animate-duration-1200 animate-delay-200 grid w-full justify-items-center bg-gradient-to-b from-[#e2f2ff] via-[#ffffff] to-[#e2f2ff]'>
       <div className='grid auto-rows-min gap-4 items-center justify-items-center p-2 py-6 md:py-0 md:mt-3 rounded-lg'>
-        <h1 className={`${bebas.className} px-8 text-[#642073] text-center text-4xl py-2`}>Asesoría Profesional en Planes de Salud</h1>
-        <p className='text-center text-[#004aad] text-2xl px-4'>Te ayudamos a encontrar un Buen Plan</p>
+        <h1 className={`${bebas.className} px-8 text-[#642073] text-center text-3xl py-2`}>Asesoría Profesional en Planes de Salud</h1>
+        <p className='text-center text-[#004aad] text-xl px-4'>Te ayudamos a encontrar un buen plan</p>
         <p className='text-center text-[#004aad] text-base px-6'>Conoce todas tus opciones y elige la mejor para ti y tu familia</p>
         <Link href="#contact" passHref>
           <button
