@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useTable, useSortBy } from "react-table";
 import { format, isValid } from "date-fns";
-import { firestoreDB } from "../../firebase/config.js";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import EditForm from "./EditForm";
 import TableRow from "./TableRow";
 
-const SortableTable2 = () => {
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+const SortableTable2 = ({ columns, data }) => {
+  const [filteredData, setFilteredData] = useState(data);
   const [selectedRowId, setSelectedRowId] = useState(null);
   const [editData, setEditData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,46 +23,6 @@ const SortableTable2 = () => {
     }
     return text;
   };
-
-  const columns = React.useMemo(
-    () => [
-      { Header: "Nombre", accessor: "nombre" },
-      {
-        Header: "Institución",
-        accessor: "institucion",
-        Cell: ({ value }) => abbreviateText(value, 15),
-      },
-      {
-        Header: "Fecha de Envío",
-        accessor: "createdAt",
-        Cell: ({ value }) => {
-          console.log("Fecha de Envío en tabla:", value); // Agregar console.log para verificar la fecha
-          return isValid(new Date(value))
-            ? format(new Date(value), "dd/MM/yyyy")
-            : "Fecha inválida";
-        },
-      },
-      { Header: "Estado", accessor: "estado" },
-    ],
-    []
-  );
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const snapshot = await firestoreDB.collection("formubuenplan").get();
-      const data = snapshot.docs.map((doc) => {
-        const createdAt = doc.data().createdAt
-          ? doc.data().createdAt.toDate()
-          : new Date();
-        console.log("Fecha de creación obtenida:", createdAt); // Agregar console.log para verificar la fecha
-        return { id: doc.id, ...doc.data(), createdAt };
-      });
-      setData(data);
-      setFilteredData(data);
-    };
-
-    fetchData();
-  }, []);
 
   useEffect(() => {
     const results = data.filter((row) =>

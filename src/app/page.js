@@ -16,15 +16,13 @@ export default function Home() {
     <>
       <Head>
         <title>Buen Plan - Asesoría en Isapres</title>
-        <meta name="description" content="Te ayudamos a encontrar el mejor plan de Isapres para ti y tu familia." />
-        <meta name="keywords" content="Isapres, asesoría, salud, planes de salud" />
-        <meta name="author" content="Buen Plan" />
+        <meta name="description" content="Encuentra el mejor plan de Isapres para ti y tu familia, te ayudamos." />
+        <meta name="keywords" content="Isapres, asesoría, salud, planes de salud, cambio de isapre, seguro de salud" />
+        <meta name="author" content="Buen Plan Salud Chile" />
         <meta property="og:title" content="Buen Plan - Asesoría en Isapres" />
-        <meta property="og:description" content="Te ayudamos a encontrar el mejor plan de Isapres para ti y tu familia." />
+        <meta property="og:description" content="Encuentra el mejor plan de Isapres para ti y tu familia, te ayudamos." />
         <meta property="og:image" content="/img/BPlogo1.svg" />
         <meta property="og:url" content="https://www.buenplansalud.cl" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/img/BPlogo1.svg" />
       </Head>
       <div className="grid grid-rows-min">
         <main className="grid grid-rows-min items-center sm:items-start w-full h-full bg-white">
