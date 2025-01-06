@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useTable, useSortBy } from "react-table";
-import { format, isValid } from "date-fns";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import TableRow from "./TableRow";
+import { firestoreDB } from '../../firebase/config.js';
 
-const SortableTable2 = ({ columns, data }) => {
+const SortableTable2 = ({ data }) => {
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Nombre',
+        accessor: 'nombre',
+      },
+      {
+        Header: 'Institución',
+        accessor: 'institucion',
+      },
+      {
+        Header: 'Fecha de Envío',
+        accessor: 'createdAt',
+        Cell: ({ value }) => new Date(value).toLocaleDateString(), // Formatear la fecha
+      },
+      {
+        Header: 'Estado',
+        accessor: 'estado',
+      },
+    ],
+    []
+  );
+
   const [filteredData, setFilteredData] = useState(data);
   const [selectedRowId, setSelectedRowId] = useState(null);
   const [editData, setEditData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
-
-  const abbreviateText = (text, maxLength) => {
-    if (text.length > maxLength) {
-      return (
-        <span className="tooltip">
-          {text.slice(0, maxLength) + "..."}
-          <span className="tooltiptext">{text}</span>
-        </span>
-      );
-    }
-    return text;
-  };
 
   useEffect(() => {
     const results = data.filter((row) =>
@@ -156,13 +167,13 @@ const SortableTable2 = ({ columns, data }) => {
         <thead className="bg-blue-600 text-yellow-400 tracking-wider">
           {headerGroups.map((headerGroup) => (
             <tr
-              key={headerGroup.id} // Pasar la propiedad key directamente
+              key={headerGroup.id}
               {...headerGroup.getHeaderGroupProps()}
               className="grid w-screen grid-cols-4"
             >
               {headerGroup.headers.map((column) => (
                 <th
-                  key={column.id} // Pasar la propiedad key directamente
+                  key={column.id}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   className="py-1"
                 >

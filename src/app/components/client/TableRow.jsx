@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { firestoreDB } from '../../firebase/config.js';
 import EditForm from "./EditForm";
 import { FaEdit, FaTrash, FaWhatsapp } from "react-icons/fa";
@@ -22,54 +22,57 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
   return (
     <React.Fragment key={row.original.id}>
       <tr
-        key={row.id} // Pasar la propiedad key directamente
+        key={row.id}
         {...row.getRowProps()}
         className={`grid grid-cols-4 w-full justify-items-center border-b-[0.5px] border-sky-600 tracking-wider cursor-pointer ${isSelected ? 'bg-blue-300' : ''}`}
         onClick={() => handleRowClick(row.original.id)}
       >
         {row.cells.map((cell) => {
           const cellProps = cell.getCellProps();
-          const { key, ...rest } = cellProps; // Extraer la clave y el resto de las propiedades
-          return (
-            <td
-              key={cell.column.id} // Pasar la propiedad key directamente
-              {...rest}
-              className="py-1 justify-center px-1"
-            >
-              {cell.column.id === "estado" ? (
-                isEditingState ? (
-                  <select
-                    value={newState}
-                    onChange={handleStateChange}
-                    onBlur={() => setIsEditingState(false)}
-                    className="ml-2 bg-gray-800 text-white tracking-wider"
-                    onClick={(e) => e.stopPropagation()} // Detener la propagación del evento de clic
-                  >
-                    <option value="No contactado">No contactado</option>
-                    <option value="Contactado">Contactado</option>
-                    <option value="Cotizando">Cotizando</option>
-                    <option value="Finalizado">Finalizado</option>
-                  </select>
+          const { key, ...rest } = cellProps;
+          if (["nombre", "institucion", "createdAt", "estado"].includes(cell.column.id)) {
+            return (
+              <td
+                key={cell.column.id}
+                {...rest}
+                className="py-1 justify-center px-1"
+              >
+                {cell.column.id === "estado" ? (
+                  isEditingState ? (
+                    <select
+                      value={newState}
+                      onChange={handleStateChange}
+                      onBlur={() => setIsEditingState(false)}
+                      className="ml-2 bg-gray-800 text-white tracking-wider"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <option value="No contactado">No contactado</option>
+                      <option value="Contactado">Contactado</option>
+                      <option value="Cotizando">Cotizando</option>
+                      <option value="Finalizado">Finalizado</option>
+                    </select>
+                  ) : (
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsEditingState(true);
+                      }}
+                      className="ml-2 cursor-pointer"
+                    >
+                      {newState}
+                    </span>
+                  )
                 ) : (
-                  <span
-                    onClick={(e) => {
-                      e.stopPropagation(); // Detener la propagación del evento de clic
-                      setIsEditingState(true);
-                    }}
-                    className="ml-2 cursor-pointer"
-                  >
-                    {newState}
-                  </span>
-                )
-              ) : (
-                cell.render("Cell")
-              )}
-            </td>
-          );
+                  cell.render("Cell")
+                )}
+              </td>
+            );
+          }
+          return null;
         })}
       </tr>
       {isSelected && (
-        <div className="grid grid-cols-2   w-screen">
+        <div className="grid grid-cols-2 w-screen">
           <tr className="grid bg-blue-200 tracking-wider">
             <td colSpan={row.cells.length} className="grid py-1 px-1 w-fit text-nowrap ">
               <div className="grid auto-rows-min ml-4 my-4 text-sm gap-4">
@@ -109,7 +112,7 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
                 <FaEdit />
               </button>
               <button
-                className="text-red-400 grid justify-items-center items-center  bg-white shadow-lg rounded-full h-10 w-10 m-0 px-2 hover:animate-wiggle-more animate-infinite"
+                className="text-red-400 grid justify-items-center items-center bg-white shadow-lg rounded-full h-10 w-10 m-0 px-2 hover:animate-wiggle-more animate-infinite"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleDelete(row);
