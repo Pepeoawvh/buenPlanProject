@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Head from 'next/head';
 import Hero from './components/client/hero';
 import Testimonials from './components/client/testimonials';
