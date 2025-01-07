@@ -64,16 +64,18 @@ const Contact = () => {
           )
           .then(
             (result) => {
-              console.log(result.text);
+              console.log("Email enviado:", result.text);
+              alert("¡Formulario enviado exitosamente!");
+              setIsSubmitted(true);
             },
             (error) => {
-              console.log(error.text);
+              console.log("Error al enviar el email:", error.text);
+              alert("Error al enviar el formulario. Por favor, inténtalo de nuevo.");
             }
           );
-        alert("¡Formulario enviado exitosamente!");
-        setIsSubmitted(true);
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
+        alert("Error al enviar el formulario. Por favor, inténtalo de nuevo.");
       }
     }
   };
@@ -220,4 +222,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact; 
