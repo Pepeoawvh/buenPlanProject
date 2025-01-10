@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import { questrial } from "../../ui/fonts.js";
 import "../styles/NavBar.css";
 import Link from "next/link";
-import Image from "next/image";
+
+const Image = lazy(() => import("next/image"));
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,17 +33,19 @@ const NavBar = () => {
       <div className={`blur-background ${isOpen && "open"} `} />
       <nav
         ref={navRef}
-        className=" grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center bg-[#d8ecff]"
+        className="grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center bg-[#d8ecff]"
       >
         <Link href="/" className="w-fit col-span-1 md:col-span-1 md md:justify-self-start md:ml-24">
           <div className="select-none pl-5 ">
-            <Image
-              width={700}
-              height={700}
-              alt="Logo"
-              src="/img/BPlogo1.svg"
-              className="md:w-auto md:h-24 "
-            />
+            <Suspense fallback={<div>...</div>}>
+              <Image
+                width={700}
+                height={700}
+                alt="Logo"
+                src="/img/BPlogo1.svg"
+                className="md:w-auto md:h-24 "
+              />
+            </Suspense>
           </div>
         </Link>
         <div className="grid grid-cols-3">
@@ -61,13 +64,15 @@ const NavBar = () => {
         >
           <div className="grid grid-cols-1 justify-items-center items-center">
             <div className="select-none pl-5">
-              <Image
-                width={200}
-                height={200}
-                alt="Logo"
-                src="/img/BPlogo1.svg"
-                className=" hover:animate"
-              />
+              <Suspense fallback={<div>...</div>}>
+                <Image
+                  width={200}
+                  height={200}
+                  alt="Logo"
+                  src="/img/BPlogo1.svg"
+                  className="hover:animate"
+                />
+              </Suspense>
             </div>
           </div>
           <Link
@@ -92,7 +97,7 @@ const NavBar = () => {
             <li className="">Contáctanos</li>
           </Link>
           <Link
-            className="grid hover:bg-[#004aad] hover:text-white bg-white  sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/faq"
             onClick={handleLinkClick}
           >

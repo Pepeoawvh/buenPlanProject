@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { bebas } from "../../ui/fonts.js";
 import styles from "../styles/animations.module.css";
 import Link from "next/link";
@@ -42,7 +42,8 @@ const Footer = () => {
             width={200}
             height={200}
             className="justify-self-center"
-          />{" "}
+            loading="lazy" // Carga diferida de imágenes
+          />
         </div>
       </div>
       <div className="text-center text-sm text-white mt-8">
@@ -55,4 +56,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { memo } from 'react'
 import { bebas } from "../../ui/fonts.js"
 import styles from '../styles/animations.module.css';
 import Link from 'next/link';
@@ -23,4 +23,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);

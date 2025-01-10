@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, memo } from "react";
 import { firestoreDB } from "../../firebase/config.js";
 import { bebas } from "../../ui/fonts.js";
 import styles from "../styles/animations.module.css";
@@ -222,4 +222,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default memo(Contact);
