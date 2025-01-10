@@ -23,7 +23,7 @@ const Comofunciona = () => {
           <h1 className="text-[#143899] text-4xl">¿Cómo funciona?</h1>
           <h2 className="text-[#143899]">¡Muy Fácil!</h2>
           <div className="grid gap-1 grid-cols-7 items-center w-full h-fit rounded-xl p-2 bg-[#2694e7]">
-            <div className="grid col-start-1 col-span-1 items-center bg-white h-full rounded-[4px] text-base text-[#143899]">
+            <div className="grid col-start-1 col-span-1 items-center bg-white h-full rounded-[4px] text-[#143899]">
               <span className="">1</span>
             </div>
             <span className="grid hover:bg-white hover:text-[#143899] rounded-[4px] col-start-2 col-span-2">
