@@ -1,10 +1,14 @@
-require("dotenv").config();
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import "firebase/compat/auth";
+import dotenv from 'dotenv';
 
-// Your web app's Firebase configuration
+dotenv.config();
+
+console.log("API Key:", process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
+
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: "AIzaSyAoKnJiBCslWBA_8aPfhsV_L-Bi24pdVPI",
   authDomain: "buenplan-b4be7.firebaseapp.com",
   projectId: "buenplan-b4be7",
   storageBucket: "buenplan-b4be7.appspot.com",
@@ -13,9 +17,7 @@ const firebaseConfig = {
   measurementId: "G-F16Z9P38D7"
 };
 
-// Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-// Initialize Firestore
 export const firestoreDB = app.firestore();
-
+export const auth = app.auth();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Image from 'next/image';
 import styles from '../styles/carrusel.module.css';
 
@@ -7,7 +7,6 @@ const Isapres = ({ interval = 4000 }) => {
     '/img/isap1.svg',
     '/img/isap2.svg',
     '/img/isap3.svg',
-
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,7 +27,13 @@ const Isapres = ({ interval = 4000 }) => {
       >
         {images.map((image, index) => (
           <div key={index} className={styles.carouselItem}>
-            <Image src={image} alt={`Slide ${index}`} fill className={styles.image} />
+            <Image
+              src={image}
+              alt={`Slide ${index}`}
+              fill
+              className={styles.image}
+              loading="lazy" // Carga diferida de imágenes
+            />
           </div>
         ))}
       </div>
@@ -36,4 +41,4 @@ const Isapres = ({ interval = 4000 }) => {
   );
 };
 
-export default Isapres;
+export default memo(Isapres);

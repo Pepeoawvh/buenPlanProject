@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Image from 'next/image';
 import styles from '../styles/carrusel.module.css';
 
@@ -30,7 +30,13 @@ const Carrusel = ({ interval = 5000 }) => {
       >
         {images.map((image, index) => (
           <div key={index} className={styles.carouselItem}>
-            <Image src={image} alt={`Slide ${index}`} fill className={styles.image} />
+            <Image
+              src={image}
+              alt={`Slide ${index}`}
+              fill
+              className={styles.image}
+              loading="lazy" // Carga diferida de imágenes
+            />
           </div>
         ))}
       </div>
@@ -38,4 +44,4 @@ const Carrusel = ({ interval = 5000 }) => {
   );
 };
 
-export default Carrusel;
+export default memo(Carrusel);

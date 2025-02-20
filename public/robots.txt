@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://buenplansalud.cl
+
+# Sitemaps
+Sitemap: https://buenplansalud.cl/sitemap.xml

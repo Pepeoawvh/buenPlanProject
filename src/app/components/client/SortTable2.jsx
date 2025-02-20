@@ -1,71 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useTable, useSortBy } from "react-table";
-import { format, isValid } from "date-fns";
-import { firestoreDB } from "../../firebase/config.js";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import EditForm from "./EditForm";
 import TableRow from "./TableRow";
+import { firestoreDB } from '../../firebase/config.js';
 
-const SortableTable2 = () => {
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [selectedRowId, setSelectedRowId] = useState(null);
-  const [editData, setEditData] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedMonth, setSelectedMonth] = useState("");
-
-  const abbreviateText = (text, maxLength) => {
-    if (text.length > maxLength) {
-      return (
-        <span className="tooltip">
-          {text.slice(0, maxLength) + "..."}
-          <span className="tooltiptext">{text}</span>
-        </span>
-      );
-    }
-    return text;
-  };
-
+const SortableTable2 = ({ data }) => {
   const columns = React.useMemo(
     () => [
-      { Header: "Nombre", accessor: "nombre" },
       {
-        Header: "Institución",
-        accessor: "institucion",
-        Cell: ({ value }) => abbreviateText(value, 15),
+        Header: 'Nombre',
+        accessor: 'nombre',
       },
       {
-        Header: "Fecha de Envío",
-        accessor: "createdAt",
-        Cell: ({ value }) => {
-          console.log("Fecha de Envío en tabla:", value); // Agregar console.log para verificar la fecha
-          return isValid(new Date(value))
-            ? format(new Date(value), "dd/MM/yyyy")
-            : "Fecha inválida";
-        },
+        Header: 'Institución',
+        accessor: 'institucion',
       },
-      { Header: "Estado", accessor: "estado" },
+      {
+        Header: 'Fecha de Envío',
+        accessor: 'createdAt',
+        Cell: ({ value }) => new Date(value).toLocaleDateString(), // Formatear la fecha
+      },
+      {
+        Header: 'Estado',
+        accessor: 'estado',
+      },
     ],
     []
   );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const snapshot = await firestoreDB.collection("formubuenplan").get();
-      const data = snapshot.docs.map((doc) => {
-        const createdAt = doc.data().createdAt
-          ? doc.data().createdAt.toDate()
-          : new Date();
-        console.log("Fecha de creación obtenida:", createdAt); // Agregar console.log para verificar la fecha
-        return { id: doc.id, ...doc.data(), createdAt };
-      });
-      setData(data);
-      setFilteredData(data);
-    };
-
-    fetchData();
-  }, []);
+  const [filteredData, setFilteredData] = useState(data);
+  const [selectedRowId, setSelectedRowId] = useState(null);
+  const [editData, setEditData] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
 
   useEffect(() => {
     const results = data.filter((row) =>
@@ -174,7 +142,7 @@ const SortableTable2 = () => {
       <div className="mb-4 px-4 flex items-center space-x-4">
         <button
           onClick={generatePDF}
-          className="h-fit mt-2 text-[#ffffef] px-8 rounded-md bg-gradient-to-r from-cyan-600 to-cyan-800 shadow-md hover:bg-cyan-500"
+          className="h-fit mt-2 px-8 rounded-md border-2 border-[#40a0ff] hover:bg-cyan-500"
         >
           Descargar Tabla Actual
         </button>
@@ -183,7 +151,7 @@ const SortableTable2 = () => {
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Buscar..."
-          className="h-8 mt-2 px-4 rounded-md border border-gray-300 shadow-md focus:outline-none"
+          className="h-8 mt-2 px-4 rounded-md border-2 border-[#40a0ff] shadow-md focus:outline-none"
         />
         <label className="block mb-4">
           Mes:
@@ -191,21 +159,21 @@ const SortableTable2 = () => {
             type="month"
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="ml-2 p-2 border rounded w-auto border-[#3d4f4a]"
+            className="ml-2 p-2 border-2 rounded w-auto border-[#40a0ff]"
           />
         </label>
       </div>
       <table {...getTableProps()} className="w-full">
-        <thead className="bg-lime-600 text-orange-100">
+        <thead className="bg-blue-600 text-yellow-400 tracking-wider">
           {headerGroups.map((headerGroup) => (
             <tr
-              key={headerGroup.id} // Pasar la propiedad key directamente
+              key={headerGroup.id}
               {...headerGroup.getHeaderGroupProps()}
               className="grid w-screen grid-cols-4"
             >
               {headerGroup.headers.map((column) => (
                 <th
-                  key={column.id} // Pasar la propiedad key directamente
+                  key={column.id}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   className="py-1"
                 >

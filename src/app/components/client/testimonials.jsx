@@ -5,13 +5,13 @@ const Testimonials = () => {
   return (
     <section id="testimonios" className="text-[#0c369c] text-xl mt-8">
       <h2
-        className={`border-b-4 ${bebas.className} border-b-[#2694e7] text-center pb-2 text-3xl `}
+        className={`border-t-4 ${bebas.className}  border-[#2694e7] pt-6 text-center pb-2 text-3xl `}
       >
         Testimonios de nuestros clientes
       </h2>
 
-      <div className="grid my-8 mx-3 gap-5 auto-rows-min text-primary-900 text-base justify-items-center leading-relaxed">
-        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff]">
+      <div className="grid my-8 mx-3 gap-5 auto-rows-min text-primary-900 text-base justify-items-center  leading-relaxed  md:text-center md:mx-40">
+        <div className="grid border w-[90%] p-6 text-center rounded-xl shadow-md bg-[#e9f5ff] ">
           <p>
             &quot;La asesoría de Buen Plan fue muy rápida y clara. En
             pocos minutos me explicaron las opciones que mejor se adaptaban a mis

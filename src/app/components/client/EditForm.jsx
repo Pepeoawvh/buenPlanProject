@@ -4,9 +4,9 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
   if (!editData) return null;
 
   return (
-    <tr className=" bg-gray-800 w-full aspect-auto">
+    <tr className=" bg-blue-800 text-yellow-400 w-full aspect-auto">
       <td colSpan={columns.length} className="grid w-full">
-        <form className="grid w- gap-2" onSubmit={handleEditSubmit}>
+        <form className="grid mt-2 gap-2" onSubmit={handleEditSubmit}>
           <div className="grid auto-rows-min">
             <span className="pl-2">Nombre</span>
             <input
@@ -15,7 +15,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.nombre || ""}
               onChange={handleEditChange}
               placeholder="Nombre"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -26,7 +26,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.rut || ""}
               onChange={handleEditChange}
               placeholder="RUT"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md  focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -37,7 +37,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.email || ""}
               onChange={handleEditChange}
               placeholder="Email"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md  focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -48,7 +48,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.edad || ""}
               onChange={handleEditChange}
               placeholder="Edad"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md  focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -59,7 +59,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.telefono || ""}
               onChange={handleEditChange}
               placeholder="Teléfono"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md  focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -70,7 +70,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.institucion || ""}
               onChange={handleEditChange}
               placeholder="Institución"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md  focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -81,13 +81,13 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.clinica || ""}
               onChange={handleEditChange}
               placeholder="Clínica"
-              className="text-gray-300 w-full bg-gray-600 px-6 py-1 shadow-md  focus:outline-none"
+              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
             />
           </div>
        
           <button
             type="submit"
-            className="h-8 mt-2 text-[#ffffef]  bg-gradient-to-r from-blue-600 to-blue-800 shadow-md hover:bg-orange-500"
+            className="h-8 mt-2 text-[#ffffef] mx-2 mb-2 rounded-sm border-2 border-yellow-400  bg-gradient-to-r from-blue-600 to-blue-800 shadow-md hover:bg-orange-500"
           >
             Guardar
           </button>

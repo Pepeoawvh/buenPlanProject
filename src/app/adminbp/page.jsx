@@ -1,43 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { firestoreDB } from "../firebase/config.js";
-import SortableTable2 from "../components/client/SortTable2.jsx";
-import Contact from "../components/client/contact.jsx";
+import React from "react";
+import FormuFetcher from "../components/client/formuFetcher"; // Asegúrate de que la ruta sea correcta
+import Contact from "../components/client/contact"; // Asegúrate de que la ruta sea correcta
+import Login from "../components/client/login"; // Asegúrate de que la ruta sea correcta
+import { useAuth } from "../context/authProvider"; // Asegúrate de que la ruta sea correcta
 
 const AdminBP = () => {
-  const [data, setData] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const password = prompt("Por favor, ingrese la contraseña:");
-    if (password === "adminbp") {
-      setIsAuthenticated(true);
-    } else {
-      alert("Contraseña incorrecta. No tienes acceso a esta página.");
-      window.location.href = "https://buen-plan-project.vercel.app"; // Redirige a otra página
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      const fetchData = async () => {
-        const db = firestoreDB;
-        const dataRef = db.collection("formubuenplan");
-        const snapshot = await dataRef.get();
-        const dataList = [];
-        snapshot.forEach((doc) => {
-          const createdAt = doc.data().createdAt ? doc.data().createdAt.toDate() : new Date();
-          dataList.push({ ...doc.data(), id: doc.id, createdAt });
-        });
-        console.log("Datos obtenidos:", dataList); // Agregar console.log para mostrar los datos obtenidos
-        setData(dataList);
-      };
-      fetchData().catch((error) => {
-        alert("Hubo un problema, revisar consola");
-        console.log(error);
-      });
-    }
-  }, [isAuthenticated]);
+  const { currentUser, logout } = useAuth();
 
   const columns = React.useMemo(
     () => [
@@ -81,20 +50,29 @@ const AdminBP = () => {
     []
   );
 
-  if (!isAuthenticated) {
-    return null; // No renderiza nada si no está autenticado
+  if (!currentUser) {
+    return <Login />;
   }
 
   return (
-    <div className="bg-gray-900 h-screen w-screen">
-      <div className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
+    <div className="bg-white text-blue-900 h-full w-screen">
+      <header>
         <h1 className="text-center text-2xl my-4 pl-4">FORMULARIOS BUEN PLAN</h1>
-        <SortableTable2 columns={columns} data={data} />
-        <div className="grid mb-4 mt-4 bg-lime-600 w-screen justify-items-center justify-self-start text-xl py-2">
+      </header>
+      <main className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
+        <FormuFetcher columns={columns} />
+        <div className="grid mb-4 mt-4 bg-blue-600 w-screen justify-items-center justify-self-start text-xl py-2">
         </div>
-      </div>
-      <div className="grid justify-items-center">
-      </div>
+      </main>
+      <footer className="grid justify-items-center">
+        <Contact/>
+        <button
+          onClick={logout}
+          className="mt-4 p-2 bg-red-600 w-1/2 text-white rounded mb-5"
+        >
+          Cerrar sesión
+        </button>
+      </footer>
     </div>
   );
 };
