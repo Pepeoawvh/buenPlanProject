@@ -49,13 +49,13 @@ const NavBar = () => {
           </div>
         </Link>
         <div className="grid grid-cols-3">
-          <Link href="#about" className="navButton hidden md:block md:col-span-1" onClick={handleLinkClick}>
+          <Link href="#about" className="navButton hidden md:block " onClick={handleLinkClick}>
             Quienes somos
           </Link>
-          <Link href="#contact" className="navButton hidden md:block md:col-span-1" onClick={handleLinkClick}>
+          <Link href="#contact" className="navButton hidden md:block" onClick={handleLinkClick}>
             Contáctanos
           </Link>
-          <Link href="/faq" className="navButton hidden md:block md:col-span-1" onClick={handleLinkClick}>
+          <Link href="/faq" className="navButton hidden md:block " onClick={handleLinkClick}>
             Preguntas frecuentes
           </Link>
         </div>

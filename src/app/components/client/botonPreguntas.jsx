@@ -2,20 +2,24 @@ import React, { memo } from 'react'
 import { bebas } from "../../ui/fonts.js"
 import Link from 'next/link'
 import styles from '../styles/animations.module.css'
+import { FaQuestionCircle } from "react-icons/fa"
 
 const BotonPreguntas = () => {
   return (
-    <div className={`${bebas.className} grid grid-cols-3 w-full items-center justify-items-center h-auto text-4xl bg-gradient-to-r from-[#2694e7] to-[#96c0e1] p-4 shadow-md mx-4`}>
-      <span className='col-span-2 h-fit items-center justify-items-center text-center'>¿Tienes dudas?</span> 
-      <Link href="/faq" passHref>
-        <div className='mr-6'>
-          <button
-            className={`${styles.zoomImage} bg-[#2694e7] shadow-md justify-self-center border-2 border-white py-2 px-2 rounded-full text-base text-white`}
-          >
-            Preguntas Frecuentes
-          </button>
+    <div className="max-w-4xl mx-auto rounded-lg md:rounded-xl overflow-hidden shadow-md">
+      <div className={`${bebas.className} bg-gradient-to-r from-[#143899] to-[#2694e7] p-3 md:p-4 flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4`}>
+        <div className="flex items-center gap-2 text-white">
+          <FaQuestionCircle className="text-xl md:text-2xl" />
+          <span className='text-2xl md:text-3xl lg:text-4xl'>¿TIENES DUDAS?</span> 
         </div>
-      </Link>
+        <Link href="/faq" passHref className="w-full sm:w-auto">
+          <button
+            className={`${bebas.className} ${styles.zoomImage} w-full sm:w-auto bg-white text-[#143899] hover:bg-[#e9f5ff] shadow-md border-2 border-white py-2 px-4 md:px-6 rounded-full text-base md:text-lg transition-all duration-300`}
+          >
+            PREGUNTAS FRECUENTES
+          </button>
+        </Link>
+      </div>
     </div>
   )
 }
