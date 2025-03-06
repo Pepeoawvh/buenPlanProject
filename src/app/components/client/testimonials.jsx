@@ -28,9 +28,9 @@ const Testimonials = () => {
             <FaQuoteLeft className="absolute top-3 left-3 text-[#2694e7]/20 text-xl md:text-2xl" />
             <div className="pl-5 pr-3">
               <p className="text-[#004aad] text-sm md:text-base mb-4">
-                "La asesoría de Buen Plan fue muy rápida y clara. En
+                &ldquo;La asesoría de Buen Plan fue muy rápida y clara. En
                 pocos minutos me explicaron las opciones que mejor se adaptaban a mis
-                necesidades. Quedé satisfecha y se lo recomendé a varios amigos."
+                necesidades. Quedé satisfecha y se lo recomendé a varios amigos.&rdquo;
               </p>
               <p className="text-right text-sm font-medium text-[#143899]">
                 — Laura, Nutricionista, Las Condes
@@ -44,9 +44,9 @@ const Testimonials = () => {
             <FaQuoteLeft className="absolute top-3 left-3 text-[#2694e7]/20 text-xl md:text-2xl" />
             <div className="pl-5 pr-3">
               <p className="text-[#004aad] text-sm md:text-base mb-4">
-                "Como mamá, siempre busco lo mejor para mi familia,
+                &ldquo;Como mamá, siempre busco lo mejor para mi familia,
                 especialmente cuando se trata de salud. Me ayudaron a encontrar
-                opciones de cobertura según mis necesidades. El proceso fue rápido y personalizado."
+                opciones de cobertura según mis necesidades. El proceso fue rápido y personalizado.&rdquo;
               </p>
               <p className="text-right text-sm font-medium text-[#143899]">
                 — Isabel, Mamá de dos niños pequeños, Providencia
@@ -60,12 +60,12 @@ const Testimonials = () => {
             <FaQuoteLeft className="absolute top-3 left-3 text-[#2694e7]/20 text-xl md:text-2xl" />
             <div className="pl-5 pr-3">
               <p className="text-[#004aad] text-sm md:text-base mb-4">
-                "Vivo en zona rural y siempre pensé que encontrar un buen
+                &ldquo;Vivo en zona rural y siempre pensé que encontrar un buen
                 plan de salud para mi familia sería complicado. La información que me dieron fue clara, y aunque
-                estamos lejos de la capital, recibí atención rápida y personalizada."
+                estamos lejos de la capital, recibí atención rápida y personalizada.&rdquo;
               </p>
               <p className="text-right text-sm font-medium text-[#143899]">
-                — Roberto, Cliente de Región del Libertador B. O'Higgins
+                — Roberto, Cliente de Región del Libertador B. O&apos;Higgins
               </p>
             </div>
             <FaQuoteRight className="absolute bottom-3 right-3 text-[#2694e7]/20 text-xl md:text-2xl" />
@@ -76,9 +76,9 @@ const Testimonials = () => {
             <FaQuoteLeft className="absolute top-3 left-3 text-[#2694e7]/20 text-xl md:text-2xl" />
             <div className="pl-5 pr-3">
               <p className="text-[#004aad] text-sm md:text-base mb-4">
-                "La asesoría fue rápida y clara. Me ayudaron a encontrar el plan
+                &ldquo;La asesoría fue rápida y clara. Me ayudaron a encontrar el plan
                 perfecto para mi familia en minutos. Muy satisfecho con el
-                servicio."
+                servicio.&rdquo;
               </p>
               <p className="text-right text-sm font-medium text-[#143899]">
                 — Felipe, Médico General, Las Condes
@@ -92,8 +92,8 @@ const Testimonials = () => {
             <FaQuoteLeft className="absolute top-3 left-3 text-[#2694e7]/20 text-xl md:text-2xl" />
             <div className="pl-5 pr-3">
               <p className="text-[#004aad] text-sm md:text-base mb-4 text-center">
-                "Muy contenta con la rapidez y claridad de la asesoría. Todo el
-                proceso fue muy eficiente y sin complicaciones."
+                &ldquo;Muy contenta con la rapidez y claridad de la asesoría. Todo el
+                proceso fue muy eficiente y sin complicaciones.&rdquo;
               </p>
               <p className="text-center text-sm font-medium text-[#143899]">
                 — Marta, Psicóloga, Santiago

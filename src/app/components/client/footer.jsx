@@ -7,7 +7,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaHome, FaUsers, FaQuestionCircle } from "r
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#2694e7] text-white py-8 px-4">
+    <footer className="grid justify-items-center w-full bg-[#2694e7] text-white py-8 px-4">
       <div className="mx-4 md:mx-auto md:max-w-5xl lg:max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Navegación */}
