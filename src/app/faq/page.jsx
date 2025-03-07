@@ -89,7 +89,7 @@ const PreguntasFrecuentes = () => {
                 </div>
                 
                 {/* Pregunta 4 - Corregido el delay */}
-                <div className="px-4 md:px-8 pt-2 pb-4 animate-fade-down animate-once animate-duration-[1000ms] animate-delay-[900ms]">
+                <div className="bg-[#e9f5ff] px-4 md:px-8 pt-2 pb-4 animate-fade-down animate-once animate-duration-[1000ms] animate-delay-[900ms]">
                   <div className="flex items-start md:items-center gap-3 mb-2">
                     <FaQuestionCircle className="text-[#2694e7] text-xl md:text-2xl flex-shrink-0 mt-1 md:mt-0" />
                     <h2 className={`${bebas.className} text-xl md:text-2xl text-[#143899]`}>
