@@ -8,7 +8,7 @@ const Testimonials = lazy(() => import('./components/client/testimonials'))
 const Isapres = lazy(() => import('./components/client/isapres'))
 const About = lazy(() => import('./components/client/about'))
 const Contact = lazy(() => import('./components/client/contact'))
-// const WspButton = lazy(() => import('./components/client/WspButton'))
+const WspButton = lazy(() => import('./components/client/WspButton'))
 const Banner = lazy(() => import('./components/client/banner'))
 const Comofunciona = lazy(() => import('./components/client/comofunciona'))
 const Carrusel = lazy(() => import('./components/client/carrusel'))
@@ -50,7 +50,7 @@ export default function Home() {
             <About />
           </Suspense>
           <Suspense fallback={<div>Cargando...</div>}>
-            {/* <WspButton /> */}
+            <WspButton />
           </Suspense>
           <Suspense fallback={<div>Cargando...</div>}>
             <Testimonials />
