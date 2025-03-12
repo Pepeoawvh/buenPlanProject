@@ -31,3 +31,129 @@ body {
     text-wrap: balance;
   }
 }
+.blog-content h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.blog-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.blog-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.blog-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.blog-content a {
+  color: #2694e7;
+  text-decoration: underline;
+}
+
+.blog-content a:hover {
+  color: #1c6cb9;
+}
+
+.blog-content ul, .blog-content ol {
+  padding-left: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content ul li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content ol li {
+  list-style-type: decimal;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid #2694e7;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #4b5563;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+  margin: 1rem 0;
+}
+
+.blog-content pre {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.blog-content code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+.carousel-transition {
+  transition-property: transform;
+  transition-duration: 3000ms; /* Transición muy lenta de 3 segundos */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* Curva de aceleración personalizada para mayor suavidad */
+}
+
+/* Variante aún más lenta */
+.carousel-transition-extra-slow {
+  transition-property: transform;
+  transition-duration: 2000ms; /* Transición extremadamente lenta de 4.5 segundos */
+  transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1); /* Curva con menos aceleración/desaceleración */
+}
+
+/* Variante de desvanecimiento cruzado */
+@keyframes crossfade {
+  0%, 20% {
+    opacity: 1;
+  }
+  33%, 87% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Ajustes de altura responsivos para el carrusel */
+.carousel-height {
+  height: 200px; /* Móvil */
+}
+
+@media (min-width: 768px) {
+  .carousel-height {
+    height: 300px; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-height {
+    height: 500px; /* Desktop */
+  }
+}

@@ -4,7 +4,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
   if (!editData) return null;
 
   return (
-    <tr className=" bg-blue-800 text-yellow-400 w-full aspect-auto">
+    <tr className=" bg-blue-800 text-yellow-400 w-full aspect-auto text-xs">
       <td colSpan={columns.length} className="grid w-full">
         <form className="grid mt-2 gap-2" onSubmit={handleEditSubmit}>
           <div className="grid auto-rows-min">

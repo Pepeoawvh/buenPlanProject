@@ -12,6 +12,7 @@ const WspButton = lazy(() => import('./components/client/WspButton'))
 const Banner = lazy(() => import('./components/client/banner'))
 const Comofunciona = lazy(() => import('./components/client/comofunciona'))
 const Carrusel = lazy(() => import('./components/client/carrusel'))
+const BotonBlog = lazy(() => import('./components/client/BotonBlog'))
 
 export default function Home() {
   return (
@@ -33,6 +34,9 @@ export default function Home() {
           </Suspense>
           <Suspense fallback={<div>Cargando...</div>}>
             <Banner />
+          </Suspense>
+          <Suspense fallback={<div>Cargando...</div>}>
+          <BotonBlog />
           </Suspense>
           <Suspense fallback={<div>Cargando...</div>}>
             <Comofunciona />

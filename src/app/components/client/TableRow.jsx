@@ -35,7 +35,7 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
               <td
                 key={cell.column.id}
                 {...rest}
-                className="py-1 justify-center px-1"
+                className="py-1 justify-center text-xs px-1"
               >
                 {cell.column.id === "estado" ? (
                   isEditingState ? (
@@ -72,7 +72,7 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
         })}
       </tr>
       {isSelected && (
-        <div className="grid grid-cols-2 w-screen">
+        <div className="flex-col w-screen">
           <tr className="grid bg-blue-200 tracking-wider">
             <td colSpan={row.cells.length} className="grid py-1 px-1 w-fit text-nowrap ">
               <div className="grid auto-rows-min ml-4 my-4 text-sm gap-4">
@@ -100,8 +100,8 @@ const TableRow = ({ row, isSelected, handleRowClick, handleEdit, handleDelete, e
               </div>
             </td>
           </tr>
-          <tr className="grid border-l-2 bg-blue-100 w-fit">
-            <td colSpan={row.cells.length} className="grid w-fit auto-rows-min mx-2 justify-items-center content-center gap-8">
+          <tr className="flex border-l-2 text-xs justify-center bg-blue-100 w-full">
+            <td colSpan={row.cells.length} className="flex w-fit  mx-2 items-center gap-8">
               <button
                 className="grid justify-items-center items-center text-blue-400 bg-white shadow-lg rounded-full h-10 w-10 m-0 px-2 hover:animate-wiggle-more animate-infinite"
                 onClick={(e) => {

@@ -33,24 +33,27 @@ const NavBar = () => {
       <div className={`blur-background ${isOpen && "open"} `} />
       <nav
         ref={navRef}
-        className="grid h-auto grid-cols-3 grid-rows-1 md:grid-cols-2 items-center py-2 justify-items-center bg-[#d8ecff]"
+        className="flex h-auto pr-6 justify-between items-center py-2 justify-items-center bg-[#d8ecff]"
       >
-        <Link href="/" className="w-fit col-span-1 md:col-span-1 md md:justify-self-start md:ml-24">
+        <Link href="/" className=" md:justify-self-start md:ml-24">
           <div className="select-none pl-5 ">
             <Suspense fallback={<div>...</div>}>
               <Image
-                width={700}
+                width={1000}
                 height={700}
                 alt="Logo"
                 src="/img/BPlogo1.svg"
-                className="md:w-auto md:h-24 "
+                className="w-28 md:w-44 "
               />
             </Suspense>
           </div>
         </Link>
-        <div className="grid grid-cols-3">
+        <div className="flex ">
+        <Link href="/blog" className="navButton hidden md:block  " onClick={handleLinkClick}>
+            Blog
+          </Link>
           <Link href="#about" className="navButton hidden md:block " onClick={handleLinkClick}>
-            Quienes somos
+            ¿Quiénes somos?
           </Link>
           <Link href="#contact" className="navButton hidden md:block" onClick={handleLinkClick}>
             Contáctanos
@@ -58,6 +61,7 @@ const NavBar = () => {
           <Link href="/faq" className="navButton hidden md:block " onClick={handleLinkClick}>
             Preguntas frecuentes
           </Link>
+
         </div>
         <ul
           className={`grid ${questrial.className} pr-6 sm:h-full bg-[#e9f5ff] text-xl sm:grid-cols-3 sm:pr-8 navItem ${isOpen && "open"} sm:mt-0 pt-12`}
@@ -103,9 +107,16 @@ const NavBar = () => {
           >
             <li className="">Preguntas frecuentes</li>
           </Link>
+          <Link
+            className="grid hover:bg-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            href="/blog"
+            onClick={handleLinkClick}
+          >
+            <li className="">Blog</li>
+          </Link>
         </ul>
         <div
-          className={`navToggle ${isOpen && "open"} md:hidden`}
+          className={`navToggle ${isOpen && "open"} md:hidden mr-4`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <span></span>

@@ -139,10 +139,10 @@ const SortableTable2 = ({ data }) => {
 
   return (
     <div>
-      <div className="mb-4 px-4 flex items-center space-x-4">
+      <div className="mb-4 px-4 flex text-sm items-center space-x-4">
         <button
           onClick={generatePDF}
-          className="h-fit mt-2 px-8 rounded-md border-2 border-[#40a0ff] hover:bg-cyan-500"
+          className="md:h-fit md:text-lg text-sm mt-2 px-8 rounded-md border-2 border-[#40a0ff] hover:bg-cyan-500"
         >
           Descargar Tabla Actual
         </button>
@@ -169,13 +169,13 @@ const SortableTable2 = ({ data }) => {
             <tr
               key={headerGroup.id}
               {...headerGroup.getHeaderGroupProps()}
-              className="grid w-screen grid-cols-4"
+              className="grid text-sm w-screen grid-cols-4"
             >
               {headerGroup.headers.map((column) => (
                 <th
                   key={column.id}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
-                  className="py-1"
+                  className="py-1 text-xs"
                 >
                   {column.render("Header")}
                   <span>
@@ -192,7 +192,7 @@ const SortableTable2 = ({ data }) => {
         </thead>
         <tbody
           {...getTableBodyProps()}
-          className=" whitespace-nowrap overflow-hidden text-ellipsis"
+          className=" whitespace-nowrap text-xs  text-ellipsis"
         >
           {rows.map((row) => {
             prepareRow(row);

@@ -44,15 +44,14 @@
 
 .imageBanner {
   object-fit: cover;
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
 /* Media query for larger screens */
 @media (min-width: 1024px) {
   .carouselBanner {
-    max-width: 100%;
-    margin: 0 auto;
+ height: 150px;
   }
 
   .carouselItemBanner {
@@ -61,7 +60,8 @@
   }
 
   .imageBanner {
-    max-width: 75%;
+    max-width: 120%;
     margin: 0 auto;
+    
   }
 }

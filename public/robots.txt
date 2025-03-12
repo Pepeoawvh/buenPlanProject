@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://buenplansalud.cl
+Host: https://www.buenplansalud.cl
 
 # Sitemaps
-Sitemap: https://buenplansalud.cl/sitemap.xml
+Sitemap: https://www.buenplansalud.cl/sitemap.xml

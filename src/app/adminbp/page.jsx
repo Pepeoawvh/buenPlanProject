@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
-import FormuFetcher from "../components/client/formuFetcher"; // Asegúrate de que la ruta sea correcta
-import Contact from "../components/client/contact"; // Asegúrate de que la ruta sea correcta
-import Login from "../components/client/login"; // Asegúrate de que la ruta sea correcta
-import { useAuth } from "../context/authProvider"; // Asegúrate de que la ruta sea correcta
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import FormuFetcher from "../components/client/formuFetcher";
+import Contact from "../components/client/contact";
+import Login from "../components/client/login";
+import { useAuth } from "../context/authProvider";
 
 const AdminBP = () => {
   const { currentUser, logout } = useAuth();
+  const pathname = usePathname();
 
   const columns = React.useMemo(
     () => [
@@ -42,7 +45,6 @@ const AdminBP = () => {
         Header: "Fecha de Envío",
         accessor: "createdAt",
         Cell: ({ value }) => {
-          console.log("Fecha de Envío:", value); // Agregar console.log para verificar la fecha
           return value ? new Date(value).toLocaleDateString() : 'Fecha inválida';
         },
       },
@@ -55,23 +57,61 @@ const AdminBP = () => {
   }
 
   return (
-    <div className="bg-white text-blue-900 h-full w-screen">
-      <header>
-        <h1 className="text-center text-2xl my-4 pl-4">FORMULARIOS BUEN PLAN</h1>
-      </header>
-      <main className="grid justify-items-center auto-rows-min text-[9px] font-bold ">
-        <FormuFetcher columns={columns} />
-        <div className="grid mb-4 mt-4 bg-blue-600 w-screen justify-items-center justify-self-start text-xl py-2">
+    <div className="bg-white text-blue-900 min-h-screen">
+      <header className="flex items-center justify-evenly bg-[#2694e7] text-white py-4 shadow-md">
+        <div className="flex w-full px-12 justify-between items-center">
+          <h1 className="text-1xl md:text-2xl font-bold">Panel de Administración BuenPlan</h1>
+          <button
+            onClick={logout}
+            className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded-md shadow-md text-sm transition-colors"
+          >
+            Cerrar sesión
+          </button>
         </div>
-      </main>
-      <footer className="grid justify-items-center">
-        <Contact/>
-        <button
-          onClick={logout}
-          className="mt-4 p-2 bg-red-600 w-1/2 text-white rounded mb-5"
-        >
-          Cerrar sesión
-        </button>
+      </header>
+      
+      {/* Navegación del admin */}
+      <div className="px-4 py-4">
+        <nav className="flex h-full bg-gray-100 p-4 rounded-lg w-full">
+          <ul className="flex flex-row gap-4">
+            <li>
+              <Link 
+                href="/adminbp" 
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  pathname === "/adminbp" 
+                    ? "bg-blue-700 text-white" 
+                    : "bg-[#2694e7] text-white hover:bg-blue-700"
+                }`}
+              >
+                Formularios
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/adminbp/blog" 
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  pathname === "/adminbp/blog" 
+                    ? "bg-blue-700 text-white" 
+                    : "border bg-[#2694e7] text-[white] hover:text-yellow-600 hover:bg-blue-700"
+                }`}
+              >
+                Administrar Blog
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        
+        <h2 className="text-xl font-semibold mb-4">Formularios recibidos</h2>
+        
+        <div className="overflow-x-auto">
+          <FormuFetcher columns={columns} />
+        </div>
+      </div>
+      
+      <footer className="mt-12 border-t pt-6 pb-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <Contact/>
+        </div>
       </footer>
     </div>
   );
