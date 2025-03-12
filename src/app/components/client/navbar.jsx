@@ -80,35 +80,35 @@ const NavBar = () => {
             </div>
           </div>
           <Link
-            className="grid hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] hover:text-white text-[#004aad] bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/"
             onClick={handleLinkClick}
           >
             <li className="">Inicio</li>
           </Link>
           <Link
-            className="grid w-full hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
+            className="grid w-full hover:bg-[#004aad] hover:text-white text-[#004aad] bg-white md:bg-slate-50 sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
             href="#about"
             onClick={handleLinkClick}
           >
-            <li className="">Quienes somos</li>
+            <li className="">¿Quiénes somos?</li>
           </Link>
           <Link
-            className="grid hover:bg-[#004aad] hover:text-white bg-white md:bg-slate-50 sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] text-[#004aad] hover:text-white bg-white md:bg-slate-50 sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="#contact"
             onClick={handleLinkClick}
           >
             <li className="">Contáctanos</li>
           </Link>
           <Link
-            className="grid hover:bg-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] text-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/faq"
             onClick={handleLinkClick}
           >
             <li className="">Preguntas frecuentes</li>
           </Link>
           <Link
-            className="grid hover:bg-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
+            className="grid hover:bg-[#004aad] text-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
             href="/blog"
             onClick={handleLinkClick}
           >

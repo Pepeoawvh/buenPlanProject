@@ -30,8 +30,21 @@ export default function BlogTemplate1({ post }) {
 
   return (
     <article className="max-w-3xl mx-auto">
+    {post.imageUrl && (
+          <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden mb-6">
+            <Image
+              src={post.imageUrl}
+              alt={post.title}
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
+              className="rounded-lg"
+            />
+          </div>
+        )}
+        
       {/* Cabecera del artículo */}
-      <header className="mb-8">
+      <header className="">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
         
         {post.subtitle && (
@@ -44,18 +57,6 @@ export default function BlogTemplate1({ post }) {
           </time>
         </div>
         
-        {post.imageUrl && (
-          <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden mb-6">
-            <Image
-              src={post.imageUrl}
-              alt={post.title}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-              className="rounded-lg"
-            />
-          </div>
-        )}
         
         {post.imageCaption && (
           <p className="text-sm text-gray-500 text-center italic mb-6">
@@ -65,7 +66,7 @@ export default function BlogTemplate1({ post }) {
       </header>
 
       {/* Contenido principal */}
-      <div className="prose max-w-none">
+      <div className="prose max-w-none mt-24">
         <RenderHTML content={post.content} />
       </div>
 

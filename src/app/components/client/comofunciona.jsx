@@ -14,9 +14,9 @@ const Comofunciona = () => {
       <div className="flex absolute bottom-20 left-0 w-32 md:w-80 h-32 md:h-80  bg-[#143899]/10 blur-3xl -z-10"></div>
       
       <div className="container-small mx-4 px-1 md:px-4">
-        <div className="max-w-4xl mx-auto bg-white shadow-md md:shadow-lg overflow-hidden">
+        <div className="max-w-4xl rounded-xl mx-auto bg-white shadow-md md:shadow-lg overflow-hidden">
           {/* Cabecera - con fondo ajustado y logo con fondo blanco */}
-          <div className="flex md:flex-col bg-gradient-to-r from-[#2694e7] to-[#143899] p-4 md:p-8 text-white text-center">
+          <div className="flex rounded-t-xl md:flex-col bg-gradient-to-r from-[#2694e7] to-[#143899] p-4 md:p-8 text-white text-center">
             {/* Logo con fondo blanco circular para mejor contraste */}
             <div className="bg-white rounded-full p-2 w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 md:mb-4 flex items-center justify-center">
               <Suspense fallback={<div className="h-10 w-24 bg-gray-200 animate-pulse rounded-full"></div>}>
@@ -30,9 +30,9 @@ const Comofunciona = () => {
               </Suspense>
             </div>
             <div className="mr-4 md:mr-0">
-              <h1 className={`${bebas.className} text-3xl md:text-4xl lg:text-5xl mb-1 md:mb-2`}>¿CÓMO FUNCIONA?</h1>
+              <h1 className={`${bebas.className} text-3xl md:text-4xl lg:text-5xl mb-1 md:mb-2 tracking-widest`}>¿CÓMO FUNCIONA?</h1>
               <div className="h-1 w-16 md:w-24 bg-white mx-auto mb-2 md:mb-4"></div>
-              <h2 className={`${bebas.className} text-xl md:text-2xl lg:text-3xl`}>¡MUY FÁCIL!</h2>
+              <h2 className={`${bebas.className} text-xl md:text-2xl lg:text-3xl tracking-widest`}>¡MUY FÁCIL!</h2>
             </div>
           </div>
           
@@ -95,7 +95,7 @@ const Comofunciona = () => {
           </div>
           
           {/* Pie del componente - ajustado para móvil */}
-          <div className="bg-gradient-to-r from-[#143899] to-[#2694e7] p-4 md:p-6 text-white text-center">
+          <div className="bg-gradient-to-r rounded-b-xl from-[#143899] to-[#2694e7] p-4 md:p-6 text-white text-center">
             <div className="flex items-center justify-center gap-1 md:gap-2 mb-1 md:mb-2">
               <FaCheck className="text-white" />
               <h3 className={`${bebas.className} text-lg md:text-xl lg:text-2xl`}>

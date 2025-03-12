@@ -12,7 +12,7 @@ const About = () => {
       <div className=" mx-4">
         <div className="max-w-4xl flex-col items-center mx-auto">
           {/* Encabezado */}
-          <div className="bg-gradient-to-r from-[#2694e7] to-[#143899] p-4 md:p-6 text-white text-center mb-0">
+          <div className="bg-gradient-to-r rounded-t-xl from-[#2694e7] to-[#143899] p-4 md:p-6 text-white text-center mb-0">
             <h2 className={`${bebas.className} text-3xl md:text-4xl lg:text-5xl`}>
               ACERCA DE BUEN PLAN
             </h2>
@@ -20,7 +20,7 @@ const About = () => {
           </div>
           
           {/* Contenido principal */}
-          <div className="bg-white shadow-md p-5 md:p-8">
+          <div className="bg-white rounded-b-xl shadow-md p-5 md:p-8">
             {/* Servicio gratuito destacado */}
             <div className="flex items-center justify-center bg-[#e9f5ff] p-3 md:p-4 mb-5 md:mb-6 border-l-4 border-[#2694e7]">
               <FaCheckCircle className="text-[#2694e7] text-xl md:text-2xl mr-2 md:mr-3" />

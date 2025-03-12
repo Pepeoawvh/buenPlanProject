@@ -3,11 +3,11 @@ import { bebas } from "../../ui/fonts.js";
 import styles from "../styles/animations.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { FaEnvelope, FaMapMarkerAlt, FaHome, FaUsers, FaQuestionCircle } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaHome, FaUsers, FaQuestionCircle, FaNewspaper } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="grid justify-items-center w-full bg-[#2694e7] text-white py-8 px-4">
+    <footer className="grid justify-items-center w-full bg-[#004aad] text-white py-8 px-4">
       <div className="mx-4 md:mx-auto md:max-w-5xl lg:max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Navegación */}
@@ -20,6 +20,13 @@ const Footer = () => {
                 <FaHome className="text-white/70" />
                 <Link href="/" className="text-white hover:text-white/80 transition-colors">
                   Inicio
+                </Link>
+
+              </li>
+              <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>
+                <FaNewspaper className="text-white/70" />
+                <Link href="/blog" className="text-white hover:text-white/80 transition-colors">
+                  Blog
                 </Link>
               </li>
               <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>

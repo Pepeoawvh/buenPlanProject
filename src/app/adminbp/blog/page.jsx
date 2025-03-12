@@ -211,28 +211,26 @@ export default function BlogAdminPage() {
                         'Fecha no disponible';
                       
                       return (
-                        <tr key={post.id}>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="flex items-center">
-                              <div className="flex-shrink-0 h-10 w-10 relative">
-                                {post.imageUrl ? (
-                                  <Image
-                                    src={post.imageUrl}
-                                    alt={post.title}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    className="rounded-md"
-                                  />
-                                ) : (
-                                  <div className="h-10 w-10 rounded-md bg-gray-200 flex items-center justify-center">
-                                    <span className="text-gray-500 text-xs">Sin img</span>
-                                  </div>
-                                )}
-                              </div>
-                              <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">{post.title}</div>
-                                <div className="text-sm text-gray-500 truncate max-w-xs">{post.subtitle || "Sin subtítulo"}</div>
-                              </div>
+                        <tr key={post.id} className="flex flex-col md:table-row">
+                          <td className="px-6 py-4 whitespace-nowrap flex items-center">
+                            <div className="flex-shrink-0 h-10 w-10 relative">
+                              {post.imageUrl ? (
+                                <Image
+                                  src={post.imageUrl}
+                                  alt={post.title}
+                                  fill
+                                  style={{ objectFit: 'cover' }}
+                                  className="rounded-md"
+                                />
+                              ) : (
+                                <div className="h-10 w-10 rounded-md bg-gray-200 flex items-center justify-center">
+                                  <span className="text-gray-500 text-xs">Sin img</span>
+                                </div>
+                              )}
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-medium text-gray-900">{post.title}</div>
+                              <div className="text-sm text-gray-500 truncate max-w-xs">{post.subtitle || "Sin subtítulo"}</div>
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
@@ -246,24 +244,24 @@ export default function BlogAdminPage() {
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {post.author || "Admin"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <div className="flex justify-end space-x-2">
+                          <td className="flex-col items-start text-center px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <div className="flex flex-row items-center md:flex-row md:justify-end space-y-2 md:space-y-0 md:space-x-2">
                               <a 
                                 href={`/blog/post/${post.id}`} 
                                 target="_blank"
-                                className="text-indigo-600 hover:text-indigo-900"
+                                className="bg-blue-600 mt-2 text-white px-3 mx-2 py-1 rounded-md hover:bg-blue-700"
                               >
                                 Ver
                               </a>
                               <button 
                                 onClick={() => handleEditPost(post)}
-                                className="text-blue-600 hover:text-blue-900"
+                                className="bg-blue-600 text-white px-3 py-1 mx-2 rounded-md hover:bg-blue-700"
                               >
                                 Editar
                               </button>
                               <button 
                                 onClick={() => handleDeletePost(post.id)}
-                                className="text-red-600 hover:text-red-900"
+                                className="bg-red-600 text-white px-3 mx-2 py-1 rounded-md hover:bg-red-700"
                               >
                                 Eliminar
                               </button>

@@ -64,7 +64,19 @@ export default function BlogTemplate2({ post }) {
   return (
     <article className="max-w-4xl mx-auto px-4 py-8">
       {/* Cabecera moderna con imagen lateral */}
-      <header className="mb-8">
+      {post.imageUrl && (
+            <div className="lg:flex-1 relative h-64 lg:h-80 rounded-lg overflow-hidden">
+              <Image
+                src={post.imageUrl}
+                alt={post.title}
+                fill
+                style={{ objectFit: 'cover' }}
+                priority
+                className="rounded-lg"
+              />
+            </div>
+          )}
+      <header className="">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:flex-1">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{post.title}</h1>
@@ -80,18 +92,7 @@ export default function BlogTemplate2({ post }) {
             </div>
           </div>
           
-          {post.imageUrl && (
-            <div className="lg:flex-1 relative h-64 lg:h-80 rounded-lg overflow-hidden">
-              <Image
-                src={post.imageUrl}
-                alt={post.title}
-                fill
-                style={{ objectFit: 'cover' }}
-                priority
-                className="rounded-lg"
-              />
-            </div>
-          )}
+          
         </div>
         
         {post.imageCaption && (
@@ -103,7 +104,7 @@ export default function BlogTemplate2({ post }) {
 
       {/* Texto destacado si existe */}
       {post.highlightedText && (
-        <div className="mb-8 p-6 bg-blue-50 border-l-4 border-[#2694e7] rounded-r-lg">
+        <div className="mb-8 mt-24 p-6 bg-blue-50 border-l-4 border-[#2694e7] rounded-r-lg">
           <p className="text-lg italic text-gray-800">{post.highlightedText}</p>
         </div>
       )}

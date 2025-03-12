@@ -34,13 +34,13 @@ const BlogCard = ({ post }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
       <Link href={`/blog/post/${post.id}`} className="block">
-        <div className="relative h-42 w-full">
+        <div className="relative w-full h-48 flex items-center justify-center bg-gray-100">
           <Image 
             src={post.imageUrl || '/img/BPlogo1.svg'} 
             alt={post.title} 
             width={800}
             height={400}
-            className="object-cover"
+            className="object-contain h-full"
           />
         </div>
       </Link>

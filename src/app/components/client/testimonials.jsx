@@ -11,7 +11,7 @@ const Testimonials = () => {
       
       <div className="mx-4 md:mx-auto md:max-w-5xl lg:max-w-6xl">
         {/* Encabezado */}
-        <div className="bg-gradient-to-r from-[#2694e7] to-[#143899] p-4 md:p-6 text-white text-center mb-6 md:mb-10 max-w-4xl mx-auto">
+        <div className="bg-gradient-to-r rounded-t-xl from-[#2694e7] to-[#143899] p-4 md:p-6 text-white text-center mb-6 md:mb-10 max-w-4xl mx-auto">
           <h2 className={`${bebas.className} text-3xl md:text-4xl lg:text-5xl`}>
             TESTIMONIOS DE CLIENTES
           </h2>
