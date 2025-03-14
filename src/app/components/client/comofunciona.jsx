@@ -8,10 +8,10 @@ const BotonPreguntas = lazy(() => import("./botonPreguntas"));
 
 const Comofunciona = () => {
   return (
-    <div className="py-8 md:py-16 relative overflow-hidden">
+    <div className="select-none py-8 md:py-16 relative overflow-hidden">
       {/* Fondo decorativo - ajustado para no interferir en móviles */}
-      <div className="absolute top-40 right-0 w-32 md:w-64 h-32 md:h-64  bg-[#2694e7]/10 blur-3xl -z-10"></div>
-      <div className="flex absolute bottom-20 left-0 w-32 md:w-80 h-32 md:h-80  bg-[#143899]/10 blur-3xl -z-10"></div>
+      <div className="select-none absolute top-40 right-0 w-32 md:w-64 h-32 md:h-64  bg-[#2694e7]/10 blur-3xl -z-10"></div>
+      <div className="select-none flex absolute bottom-20 left-0 w-32 md:w-80 h-32 md:h-80  bg-[#143899]/10 blur-3xl -z-10"></div>
       
       <div className="container-small mx-4 px-1 md:px-4">
         <div className="max-w-4xl rounded-xl mx-auto bg-white shadow-md md:shadow-lg overflow-hidden">

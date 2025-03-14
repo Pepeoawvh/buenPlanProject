@@ -93,7 +93,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-8 md:py-16 relative overflow-hidden text-[#143899]"
+      className="select-none py-8 md:py-16 relative overflow-hidden text-[#143899]"
     >
       {/* Fondo decorativo */}
       <div className="absolute top-20 right-0 w-32 md:w-64 h-32 md:h-64 bg-[#2694e7]/10 blur-3xl -z-10"></div>

@@ -23,7 +23,7 @@ const Carrusel = ({ interval = 5000 }) => {
   }, [images.length, interval]);
 
   return (
-    <div className={`aspect-auto ${styles.carousel}`}>
+    <div className={`aspect-auto select-none ${styles.carousel}`}>
       <div
         className={styles.carouselInner}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

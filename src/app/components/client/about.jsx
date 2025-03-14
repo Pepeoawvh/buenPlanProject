@@ -6,10 +6,10 @@ import { FaCheckCircle, FaHandsHelping } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <section id="about" className="grid justify-items-center py-8 md:py-16 relative overflow-hidden">
+    <section id="about" className=" select-none grid justify-items-center py-8 md:py-16 relative overflow-hidden">
       {/* Fondo decorativo */}
       
-      <div className=" mx-4">
+      <div className="select-none mx-4">
         <div className="max-w-4xl flex-col items-center mx-auto">
           {/* Encabezado */}
           <div className="bg-gradient-to-r rounded-t-xl from-[#2694e7] to-[#143899] p-4 md:p-6 text-white text-center mb-0">

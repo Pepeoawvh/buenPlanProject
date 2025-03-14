@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   return (
-    <div className='bg-white py-12 px-16'>
+    <div className='select-none bg-white py-12 px-16'>
       <form onSubmit={handleSubmit} className="grid text-center bg-white border-[#114ca9] text-[#0c369c] gap-4 border-2  p-12 rounded-lg shadow-md">
         <div>
           <label htmlFor="email" className="block text-center font-bold mb-2">Email:</label>

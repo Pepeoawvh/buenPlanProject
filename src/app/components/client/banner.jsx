@@ -44,7 +44,7 @@ const Banner = ({
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="min-w-full flex-shrink-0 flex justify-center items-center"
+            className="select-none min-w-full flex-shrink-0 flex justify-center items-center"
           >
             {/* Aumentamos el tamaño del contenedor de la imagen */}
             <div className="w-full h-full flex justify-center items-center">

@@ -30,7 +30,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className={`blur-background ${isOpen && "open"} `} />
+      <div className={`blur-background select-none ${isOpen && "open"} `} />
       <nav
         ref={navRef}
         className="flex h-auto pr-6 justify-between items-center py-2 justify-items-center bg-[#d8ecff]"

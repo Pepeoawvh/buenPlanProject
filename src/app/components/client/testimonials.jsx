@@ -4,7 +4,7 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const Testimonials = () => {
   return (
-    <section id="testimonios" className="grid justify-items-center py-8 md:py-16 relative overflow-hidden">
+    <section id="testimonios" className="grid select-none justify-items-center py-8 md:py-16 relative overflow-hidden">
       {/* Fondo decorativo */}
       <div className="absolute top-20 right-0 w-32 md:w-64 h-32 md:h-64 bg-[#2694e7]/10 blur-3xl -z-10"></div>
       <div className="absolute bottom-10 left-0 w-32 md:w-80 h-32 md:h-80 bg-[#143899]/10 blur-3xl -z-10"></div>

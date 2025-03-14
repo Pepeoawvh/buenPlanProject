@@ -8,7 +8,7 @@ const Image = lazy(() => import("next/image"));
 
 const Hero = () => {
   return (
-    <section id='hero' className='animate-fade animate-once animate-duration-1200 animate-delay-200 relative w-full min-h-[50vh] overflow-hidden bg-gradient-to-b from-[#e2f2ff] via-[#ffffff] to-[#e2f2ff]'>
+    <section id='hero' className='select-none animate-fade animate-once animate-duration-1200 animate-delay-200 relative w-full min-h-[50vh] overflow-hidden bg-gradient-to-b from-[#e2f2ff] via-[#ffffff] to-[#e2f2ff]'>
       {/* Elementos decorativos de fondo */}
       <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#2694e7]/10 blur-3xl"></div>
       <div className="absolute bottom-10 left-10 w-80 h-80 rounded-full bg-[#143899]/10 blur-3xl"></div>

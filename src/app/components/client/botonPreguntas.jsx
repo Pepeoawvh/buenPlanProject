@@ -6,7 +6,7 @@ import { FaQuestionCircle } from "react-icons/fa"
 
 const BotonPreguntas = () => {
   return (
-    <div className="max-w-4xl mx-auto rounded-lg md:rounded-xl overflow-hidden shadow-md">
+    <div className=" select-none max-w-4xl mx-auto rounded-lg md:rounded-xl overflow-hidden shadow-md">
       <div className={`${bebas.className} bg-gradient-to-r from-[#143899] to-[#2694e7] p-3 md:p-4 flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4`}>
         <div className="flex items-center gap-2 text-white">
           <FaQuestionCircle className="text-xl md:text-2xl" />

@@ -6,7 +6,7 @@ import { FaNewspaper } from "react-icons/fa";
 
 const BotonBlog = () => {
   return (
-    <div className="w-5/6 mt-12 mx-auto rounded-lg md:rounded-xl overflow-hidden shadow-md">
+    <div className="select-none w-5/6 mt-12 mx-auto rounded-lg md:rounded-xl overflow-hidden shadow-md">
       <div className={`${bebas.className} justify-evenly bg-gradient-to-r from-[#143899] to-[#2694e7] p-3 md:p-4 flex flex-col sm:flex-row items-center w-full gap-3 md:gap-4`}>
         <div className="flex flex-col md:flex-row items-center gap-2 text-white">
           <FaNewspaper className="text-xl md:text-2xl" />
