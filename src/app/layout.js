@@ -6,29 +6,70 @@ const Header = lazy(() => import('./components/client/header'))
 const Footer = lazy(() => import('./components/client/footer'))
 
 export const metadata = {
-  title: 'Buen Plan, Asesorías en planes de Isapres',
-  description: 'Te ayudamos a encontrar el mejor plan de Isapres para ti y tu familia.',
+  metadataBase: new URL('https://www.buenplansalud.cl'),
+  title: {
+    default: 'Buen Plan | Asesorías en Planes de Isapres',
+    template: '%s | Buen Plan',
+  },
+  description: 'Asesores certificados por la Superintendencia de Salud. Comparamos y evaluamos todos los planes de Isapres de Chile. Asesoría personalizada 100% gratuita.',
+  authors: [{ name: 'Buen Plan Salud' }],
+  creator: 'Buen Plan Salud',
+  openGraph: {
+    type: 'website',
+    siteName: 'Buen Plan Salud',
+    locale: 'es_CL',
+    url: 'https://www.buenplansalud.cl',
+    title: 'Buen Plan | Asesorías en Planes de Isapres',
+    description: 'Asesores certificados por la Superintendencia de Salud. Comparamos todos los planes de Isapres de Chile. Servicio 100% gratuito.',
+    images: [
+      {
+        url: '/img/BPlogo1.svg',
+        alt: 'Buen Plan Salud - Asesorías en Planes de Isapres Chile',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Buen Plan | Asesorías en Planes de Isapres',
+    description: 'Asesores certificados por la Superintendencia de Salud. Servicio 100% gratuito.',
+    images: ['/img/BPlogo1.svg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Buen Plan Salud',
+  url: 'https://www.buenplansalud.cl',
+  description: 'Asesorías en planes de Isapres en Chile. Profesionales certificados por la Superintendencia de Salud. Servicio 100% gratuito.',
+  priceRange: 'Gratis',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Chile',
+  },
+  serviceType: 'Asesoría en Planes de Salud',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang='es'>
-      <AuthProvider>
-        <head>
-          <meta charSet='UTF-8' />
-          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-          <meta name='description' content={metadata.description} />
-          <meta name='keywords' content='Isapres, asesoría, salud, planes de salud, cambiar isapre' />
-          <meta name='author' content='Buen Plan' />
-          <meta property='og:title' content={metadata.title} />
-          <meta property='og:description' content={metadata.description} />
-          <meta property='og:image' content='/img/BPlogo1.svg' />
-          <meta property='og:url' content='https://www.buenplansalud.cl' />
-          <meta name='twitter:card' content='summary_large_image' />
-          <meta name='twitter:image' content='/img/BPlogo1.svg' />
-          <title>{metadata.title}</title>
-        </head>
-        <body className='antialiased bg-white'>
+      <body className='antialiased bg-white'>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <AuthProvider>
           <Suspense fallback={<div>Cargando...</div>}>
             <Header />
           </Suspense>
@@ -36,8 +77,8 @@ export default function RootLayout({ children }) {
           <Suspense fallback={<div>Cargando...</div>}>
             <Footer />
           </Suspense>
-        </body>
-      </AuthProvider>
+        </AuthProvider>
+      </body>
     </html>
   )
 }

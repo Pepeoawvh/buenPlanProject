@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Buen Plan — Plataforma de Asesoría en Planes de Salud
 
-## Getting Started
+Sitio web profesional para una consultora de planes de salud (Isapres) en Chile. Next.js App Router, orientado a captar clientes mediante asesoría personalizada gratuita.
 
-First, run the development server:
+**🌐 [buenplansalud.cl](https://www.buenplansalud.cl)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Descripción
+
+Buen Plan conecta a usuarios con asesores certificados por la Superintendencia de Salud de Chile. El sitio permite acceder a comparacion de planes de isapre, resolver dudas frecuentes y solicitar asesoría personalizada sin costo.
+
+---
+
+## Stack tecnológico
+
+| Área | Tecnología |
+|------|-----------|
+| Framework | Next.js 16 (App Router, Turbopack) |
+| UI | React 19 + Tailwind CSS 3 |
+| Backend / DB | Firebase Firestore |
+| Autenticación | Firebase Auth |
+| Email | EmailJS (@emailjs/browser) |
+| Editor de texto enriquecido | TipTap (blog) |
+| Generación de PDF | jsPDF + jspdf-autotable |
+| Animaciones | tailwindcss-animated |
+| SEO | next-sitemap, schema.org JSON-LD |
+| Despliegue | Vercel |
+
+---
+
+## Características principales
+
+### Frontend
+- **Landing page** con hero section, carrusel de beneficios, comparador de Isapres, sección "¿Cómo funciona?" y testimonios
+- **Diseño responsive** optimizado para mobile, tablet y desktop
+- **Paleta de colores institucional** con variables CSS y tokens Tailwind personalizados (azul confianza + verde bienestar)
+- **Formulario de contacto** con EmailJS — envío de notificaciones al equipo sin backend propio
+- **Lazy loading** de todos los componentes pesados con `React.Suspense`
+- **Animaciones de entrada** con tailwindcss-animated
+
+### SEO (Google Search Central guidelines)
+- Metadata API de Next.js App Router en todas las páginas (título, descripción, Open Graph, Twitter Cards)
+- **JSON-LD estructurado**: `ProfessionalService` en el layout global, `FAQPage` en preguntas frecuentes
+- Sitemap XML automático con `next-sitemap` y prioridades diferenciadas
+- `robots.txt` con exclusión del panel de administración
+- Alt texts descriptivos en todas las imágenes
+- URLs canónicas por página
+
+### Blog con CMS propio
+- Panel de administración privado protegido con Firebase Auth
+- Editor de contenido enriquecido con **TipTap** (negrita, cursiva, color, imágenes, vínculos)
+- 4 plantillas de artículo disponibles
+- Exportación de artículos a **PDF** con jsPDF
+- Almacenamiento de posts en Firestore con ordenamiento por fecha
+
+### Páginas
+- `/` — Homepage (Hero, Banner, Cómo funciona, Isapres, Formulario, Testimonios, Acerca de)
+- `/blog` — Listado de artículos
+- `/blog/post/[id]` — Artículo individual con plantilla dinámica
+- `/faq` — Preguntas frecuentes con formulario de contacto integrado
+
+---
+
+## Arquitectura
+
+```
+src/app/
+├── layout.js          # Root layout con metadata global y JSON-LD
+├── page.js            # Server Component homepage (metadata única)
+├── HomePageContent.jsx # Client Component con todos los lazy imports
+├── blog/              # Listado y posts del blog
+├── faq/               # FAQ con schema FAQPage
+├── adminbp/           # Panel de administración protegido
+├── components/
+│   └── client/        # Componentes React del sitio (navbar, hero, contact, etc.)
+├── context/           # AuthProvider (Firebase Auth)
+└── firebase/          # Configuración de Firebase
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Autor
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**José Pedro Valdés** — Desarrollador Web Full Stack  
+[GitHub](https://github.com/Pepeoawvh)
+[Portafolio](https://joseangelportfolio.vercel.app)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

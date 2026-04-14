@@ -7,7 +7,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaHome, FaUsers, FaQuestionCircle, FaNewspa
 
 const Footer = () => {
   return (
-    <footer className="select-none grid justify-items-center w-full bg-[#004aad] text-white py-8 px-4">
+    <footer className="select-none grid justify-items-center w-full bg-primary text-white py-8 px-4 shadow-inner">
       <div className="mx-4 md:mx-auto md:max-w-5xl lg:max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Navegación */}
@@ -18,26 +18,26 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>
                 <FaHome className="text-white/70" />
-                <Link href="/" className="text-white hover:text-white/80 transition-colors">
+                <Link href="/" className="text-white hover:text-accent-green transition-colors font-semibold">
                   Inicio
                 </Link>
 
               </li>
               <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>
                 <FaNewspaper className="text-white/70" />
-                <Link href="/blog" className="text-white hover:text-white/80 transition-colors">
+                <Link href="/blog" className="text-white hover:text-accent-green transition-colors font-semibold">
                   Blog
                 </Link>
               </li>
               <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>
                 <FaUsers className="text-white/70" />
-                <Link href="#about" className="text-white hover:text-white/80 transition-colors">
+                <Link href="#about" className="text-white hover:text-accent-green transition-colors font-semibold">
                   Quiénes Somos
                 </Link>
               </li>
               <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>
                 <FaQuestionCircle className="text-white/70" />
-                <Link href="/faq" className="text-white hover:text-white/80 transition-colors">
+                <Link href="/faq" className="text-white hover:text-accent-green transition-colors font-semibold">
                   Preguntas Frecuentes
                 </Link>
               </li>
@@ -52,7 +52,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className={`${styles.zoomImage} flex justify-center md:justify-start items-center gap-2`}>
                 <FaEnvelope className="text-white/70" />
-                <a href="mailto:asesorias@buenplansalud.cl" className="text-white hover:text-white/80 transition-colors">
+                <a href="mailto:asesorias@buenplansalud.cl" className="text-white hover:text-accent-green transition-colors font-semibold">
                   asesorias@buenplansalud.cl
                 </a>
               </li>

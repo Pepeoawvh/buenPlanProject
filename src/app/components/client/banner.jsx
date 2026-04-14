@@ -14,6 +14,12 @@ const Banner = ({
     '/img/Servicio.svg',
     '/img/Certificado.svg',
   ],
+  alts = [
+    'Asesoría profesional en planes de salud Isapres Chile',
+    'Servicio de asesoría en Isapres 100% gratuito',
+    'Servicio personalizado de comparación de planes de salud',
+    'Asesores certificados por la Superintendencia de Salud',
+  ],
   interval = 8000
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,7 +57,7 @@ const Banner = ({
               <div className="relative w-full h-full max-w-5xl flex justify-center items-center">
                 <Image
                   src={image}
-                  alt={`Slide ${index + 1}`}
+                  alt={alts[index] || `Beneficio Buen Plan ${index + 1}`}
                   width={1200}  // Mantenemos dimensiones grandes
                   height={800}
                   className="h-auto w-auto max-h-full max-w-full object-contain"

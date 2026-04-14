@@ -7,7 +7,7 @@ import emailjs from "emailjs-com";
 import { serverTimestamp } from "firebase/firestore";
 import { FaUser, FaIdCard, FaEnvelope, FaCalendarAlt, FaPhoneAlt, FaHospital, FaClinicMedical } from "react-icons/fa";
 
-const Contact = () => {
+const Contact = ({ compact = false }) => {
   const [formData, setFormData] = useState({
     nombre: "",
     rut: "",
@@ -89,6 +89,87 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  if (compact) {
+    return (
+      <div id="contact" className="select-none text-[#143899] w-full">
+        <div className="w-full">
+          {/* Encabezado del formulario */}
+          <div className="bg-gradient-to-r from-[#2694e7] to-[#143899] p-3 text-white text-center">
+            <h2 className={`${bebas.className} text-2xl`}>
+              ASESORÍA 100% GRATUITA
+            </h2>
+            <div className="h-0.5 w-16 bg-white mx-auto mt-1"></div>
+            <p className="mt-1 text-xs">
+              Completa el formulario y te contactaremos a la brevedad
+            </p>
+          </div>
+          {!isSubmitted ? (
+            <div className="bg-white shadow-md">
+              <form ref={form} className="p-3 space-y-3" onSubmit={handleSubmit}>
+                <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                  <span className="px-2 text-[#143899]"><FaUser /></span>
+                  <input className="w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none" type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required autoComplete="name" value={formData.nombre} onChange={handleChange} aria-label="Nombre" />
+                </div>
+                <div>
+                  <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                    <span className="px-2 text-[#143899]"><FaIdCard /></span>
+                    <input className="w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none" type="text" id="rut" name="rut" placeholder="Rut: ej: 12345678-9" required pattern="^[0-9]+[-][0-9kK]{1}$" autoComplete="off" value={formData.rut} onChange={handleChange} aria-label="RUT" />
+                  </div>
+                  {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+                </div>
+                <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                  <span className="px-2 text-[#143899]"><FaEnvelope /></span>
+                  <input className="w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none" type="email" id="email" name="email" placeholder="tu@email.com" required autoComplete="email" value={formData.email} onChange={handleChange} aria-label="Email" />
+                </div>
+                <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                  <span className="px-2 text-[#143899]"><FaCalendarAlt /></span>
+                  <input className="w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none" type="number" id="edad" name="edad" placeholder="Ingresa tu edad" required min="18" max="90" autoComplete="off" value={formData.edad} onChange={handleChange} aria-label="Edad" />
+                </div>
+                <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                  <span className="px-2 text-[#143899]"><FaPhoneAlt /></span>
+                  <input className="w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none" type="tel" id="telefono" name="telefono" placeholder="Ej: +56 9 1234 5678" required autoComplete="tel" value={formData.telefono} onChange={handleChange} aria-label="Teléfono" />
+                </div>
+                <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                  <span className="px-2 text-[#143899]"><FaHospital /></span>
+                  <select className={`w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none ${formData.institucion === '' ? 'text-gray-400' : 'text-gray-800'}`} id="institucion" name="institucion" value={formData.institucion} onChange={handleChange} required aria-label="Institución">
+                    <option value="" disabled>Selecciona tu institución actual</option>
+                    <option value="Fonasa">Fonasa</option>
+                    <option value="Banmédica">Banmédica</option>
+                    <option value="Colmena">Colmena</option>
+                    <option value="Consalud">Consalud</option>
+                    <option value="Cruz Blanca">Cruz Blanca</option>
+                    <option value="Nueva MasVida">Nueva MasVida</option>
+                    <option value="Vida Tres">Vida Tres</option>
+                    <option value="Esencial">Esencial</option>
+                  </select>
+                </div>
+                <div className="flex items-center border border-[#2694e7]/30 focus-within:border-[#2694e7]">
+                  <span className="px-2 text-[#143899]"><FaClinicMedical /></span>
+                  <input className="w-full p-2 text-sm border-0 focus:ring-0 focus:outline-none" type="text" id="clinica" name="clinica" placeholder="Indica tu clínica preferida" required autoComplete="off" value={formData.clinica} onChange={handleChange} aria-label="Clínica de Preferencia" />
+                </div>
+                <div className="pt-2">
+                  <button className={`${bebas.className} ${styles.zoomImage} w-full bg-gradient-to-r from-[#2694e7] to-[#143899] shadow-md py-2.5 px-4 text-lg text-white hover:from-[#143899] hover:to-[#2694e7] transition-all duration-300`} type="submit">
+                    SOLICITAR ASESORÍA
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="bg-white p-4 shadow-md">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 className={`${bebas.className} text-xl text-[#143899] mb-1`}>¡GRACIAS!</h3>
+                <p className="text-center text-gray-600 text-sm">Hemos recibido tu solicitud.<br/>Te contactaremos a la brevedad.</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section

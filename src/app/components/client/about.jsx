@@ -12,7 +12,7 @@ const About = () => {
       <div className="select-none mx-4">
         <div className="max-w-4xl flex-col items-center mx-auto">
           {/* Encabezado */}
-          <div className="bg-gradient-to-r rounded-t-xl from-[#2694e7] to-[#143899] p-4 md:p-6 text-white text-center mb-0">
+          <div className="bg-gradient-to-r rounded-t-xl from-link to-primary p-4 md:p-6 text-white text-center mb-0 shadow-md">
             <h2 className={`${bebas.className} text-3xl md:text-4xl lg:text-5xl`}>
               ACERCA DE BUEN PLAN
             </h2>
@@ -20,17 +20,17 @@ const About = () => {
           </div>
           
           {/* Contenido principal */}
-          <div className="bg-white rounded-b-xl shadow-md p-5 md:p-8">
+          <div className=" bg-white rounded-b-xl shadow-md p-5 md:p-8">
             {/* Servicio gratuito destacado */}
-            <div className="flex items-center justify-center bg-[#e9f5ff] p-3 md:p-4 mb-5 md:mb-6 border-l-4 border-[#2694e7]">
-              <FaCheckCircle className="text-[#2694e7] text-xl md:text-2xl mr-2 md:mr-3" />
-              <p className="text-center text-base md:text-lg font-medium text-[#143899]">
+            <div className="flex items-center justify-center bg-primary-light p-3 md:p-4 mb-5 md:mb-6 border-l-4 border-accent-green">
+              <FaCheckCircle className="text-accent-green text-xl md:text-2xl mr-2 md:mr-3" />
+              <p className=" text-center text-base md:text-lg font-medium text-white">
                 En Buen Plan brindamos un servicio 100% Gratuito
               </p>
             </div>
             
             {/* Párrafos de información */}
-            <div className="space-y-4 text-[#004aad] text-sm md:text-base lg:text-lg">
+            <div className="space-y-4 text-secondary text-sm md:text-base lg:text-lg">
               <p className="md:text-justify">
                 Somos un grupo de profesionales <strong>certificados por la Superintendencia de Salud</strong> altamente capacitados, especializados
                 en asesorías, comparación y evaluación de Planes de Salud en todas las
@@ -46,23 +46,19 @@ const About = () => {
             </div>
             
             {/* Recuadro de llamada a la acción */}
-            <div className="mt-6 md:mt-8 bg-[#e9f5ff] p-4 md:p-6 shadow-md">
+            <div className="mt-6 md:mt-8 bg-white p-4 md:p-6  rounded-xl">
               <div className="flex flex-col items-center space-y-3 md:space-y-4">
-                <FaHandsHelping className="text-[#2694e7] text-3xl md:text-4xl" />
-                <p className="text-center text-[#143899] text-base md:text-lg font-medium">
+                <FaHandsHelping className="text-accent-green text-3xl md:text-4xl" />
+                <p className="text-center text-secondary text-base md:text-lg font-medium">
                   Para usar nuestro servicio solo debes
                 </p>
-                
                 <Link href="#contact" className="w-full sm:w-auto">
-                  <button className={`${bebas.className} ${styles.zoomImage} w-full sm:w-auto bg-gradient-to-r from-[#2694e7] to-[#143899] shadow-md border-2 border-white py-2 px-6 md:px-8 rounded-full text-lg md:text-xl text-white hover:from-[#143899] hover:to-[#2694e7] transition-all duration-300`}>
+                  <button className={`${bebas.className} ${styles.zoomImage} tracking-widest w-full sm:w-auto bg-gradient-to-r from-accent-green to-link shadow-md border-2 border-white py-2 px-6 md:px-8 rounded-full text-lg md:text-xl text-white font-bold hover:from-link hover:to-accent-green transition-all duration-300`}>
                     COMPLETAR EL FORMULARIO
                   </button>
                 </Link>
-                
-                <p className="text-center text-[#004aad] text-sm md:text-base mt-1 md:mt-2">
-                  Uno de nuestros <strong>ejecutivos certificados</strong> se
-                  pondrá en contacto contigo a la brevedad para ofrecerte una asesoría
-                  personalizada y cercana.
+                <p className="text-center text-secondary text-sm md:text-base mt-1 md:mt-2">
+                  Uno de nuestros <strong>ejecutivos certificados</strong> se pondrá en contacto contigo a la brevedad para ofrecerte una asesoría personalizada y cercana.
                 </p>
               </div>
             </div>

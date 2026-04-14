@@ -29,7 +29,7 @@ const Isapres = ({ interval = 4000 }) => {
           <div key={index} className={styles.carouselItem}>
             <Image
               src={image}
-              alt={`Slide ${index}`}
+              alt={`Logo de Isapre de Chile ${index + 1}`}
               fill
               className={styles.image}
               loading="lazy" // Carga diferida de imágenes

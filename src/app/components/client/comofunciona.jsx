@@ -15,25 +15,27 @@ const Comofunciona = () => {
       
       <div className="container-small mx-4 px-1 md:px-4">
         <div className="max-w-4xl rounded-xl mx-auto bg-white shadow-md md:shadow-lg overflow-hidden">
-          {/* Cabecera - con fondo ajustado y logo con fondo blanco */}
-          <div className="flex rounded-t-xl md:flex-col bg-gradient-to-r from-[#2694e7] to-[#143899] p-4 md:p-8 text-white text-center">
-            {/* Logo con fondo blanco circular para mejor contraste */}
-            <div className="bg-white rounded-full p-2 w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 md:mb-4 flex items-center justify-center">
-              <Suspense fallback={<div className="h-10 w-24 bg-gray-200 animate-pulse rounded-full"></div>}>
+          {/* Cabecera - logo a la izquierda, título centrado */}
+          <div className="flex items-center rounded-t-xl bg-gradient-to-r from-[#2694e7] to-[#143899] px-5 py-4 md:px-8 md:py-6 text-white gap-4">
+            {/* Logo con fondo blanco circular */}
+            <div className="flex-shrink-0 bg-white rounded-full p-1.5 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shadow-md">
+              <Suspense fallback={<div className="h-10 w-10 bg-gray-200 animate-pulse rounded-full"></div>}>
                 <Image
                   width={200}
                   height={80}
-                  alt="Logo"
+                  alt="Logo Buen Plan Salud"
                   src="/img/BPlogo1.svg"
-                  className="h-14 md:h-16 w-auto object-contain"
+                  className="h-10 md:h-11 w-auto object-contain"
                 />
               </Suspense>
             </div>
-            <div className="mr-4 md:mr-0">
-              <h1 className={`${bebas.className} text-3xl md:text-4xl lg:text-5xl mb-1 md:mb-2 tracking-widest`}>¿CÓMO FUNCIONA?</h1>
-              <div className="h-1 w-16 md:w-24 bg-white mx-auto mb-2 md:mb-4"></div>
-              <h2 className={`${bebas.className} text-xl md:text-2xl lg:text-3xl tracking-widest`}>¡MUY FÁCIL!</h2>
+            {/* Título centrado */}
+            <div className="flex-grow text-center">
+              <h1 className={`${bebas.className} text-2xl md:text-3xl lg:text-4xl tracking-widest`}>¿CÓMO FUNCIONA?</h1>
+              <div className="h-0.5 w-16 md:w-20 bg-white/60 mx-auto mt-1"></div>
             </div>
+            {/* Espaciador para centrar visualmente el título */}
+            <div className="flex-shrink-0 w-14 md:w-16" />
           </div>
           
           {/* Contenido - Pasos - ajustados para móvil */}

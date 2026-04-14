@@ -4,8 +4,8 @@ import Navbar from './navbar'
 const Header = () => {
   return (
     <>
-      <header id='navbar' className='shadow-md h-auto text-black text-center bg-[#e9faff]'>
-<Navbar/>
+      <header id='navbar' className='h-auto bg-white shadow-md border-b border-gray-100'>
+        <Navbar/>
       </header>
     </>
   )

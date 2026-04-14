@@ -3,12 +3,14 @@ import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import { questrial } from "../../ui/fonts.js";
 import "../styles/NavBar.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Image = lazy(() => import("next/image"));
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -16,113 +18,93 @@ const NavBar = () => {
         setIsOpen(false);
       }
     };
-
     document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
+    return () => document.removeEventListener("click", handleOutsideClick);
   }, []);
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+  const handleLinkClick = () => setIsOpen(false);
+
+  // Si estamos en la home, usamos ancla directa; si no, redirigimos a home+ancla
+  const anchorHref = (anchor) => pathname === "/" ? anchor : `/${anchor}`;
 
   return (
     <>
-      <div className={`blur-background select-none ${isOpen && "open"} `} />
+      <div className={`blur-background select-none ${isOpen && "open"}`} />
       <nav
         ref={navRef}
-        className="flex h-auto pr-6 justify-between items-center py-2 justify-items-center bg-[#d8ecff]"
+        className="flex h-auto px-4 md:px-10 justify-between items-center py-3 bg-white shadow-md border-b border-gray-100"
       >
-        <Link href="/" className=" md:justify-self-start md:ml-24">
-          <div className="select-none pl-5 ">
-            <Suspense fallback={<div>...</div>}>
-              <Image
-                width={1000}
-                height={700}
-                alt="Logo"
-                src="/img/BPlogo1.svg"
-                className="w-28 md:w-44 "
-              />
-            </Suspense>
-          </div>
+        {/* Logo */}
+        <Link href="/" className="flex-shrink-0">
+          <Suspense fallback={<div className="w-28 h-10" />}>
+            <Image
+              width={1000}
+              height={700}
+              alt="Buen Plan Salud"
+              src="/img/BPlogo1.svg"
+              className="w-28 md:w-40 select-none"
+            />
+          </Suspense>
         </Link>
-        <div className="flex ">
-        <Link href="/blog" className="navButton hidden md:block  " onClick={handleLinkClick}>
+
+        {/* Links escritorio */}
+        <div className="hidden md:flex items-center gap-1">
+          <Link href="/blog" className="navButton" onClick={handleLinkClick}>
             Blog
           </Link>
-          <Link href="#about" className="navButton hidden md:block " onClick={handleLinkClick}>
+          <Link href={anchorHref("#about")} className="navButton" onClick={handleLinkClick}>
             ¿Quiénes somos?
           </Link>
-          <Link href="#contact" className="navButton hidden md:block" onClick={handleLinkClick}>
+          <Link href={anchorHref("#contact")} className="navButton" onClick={handleLinkClick}>
             Contáctanos
           </Link>
-          <Link href="/faq" className="navButton hidden md:block " onClick={handleLinkClick}>
+          <Link href="/faq" className="navButton" onClick={handleLinkClick}>
             Preguntas frecuentes
           </Link>
-
         </div>
-        <ul
-          className={`grid ${questrial.className} pr-6 sm:h-full bg-[#e9f5ff] text-xl sm:grid-cols-3 sm:pr-8 navItem ${isOpen && "open"} sm:mt-0 pt-12`}
-        >
-          <div className="grid grid-cols-1 justify-items-center items-center">
-            <div className="select-none pl-5">
-              <Suspense fallback={<div>...</div>}>
-                <Image
-                  width={200}
-                  height={200}
-                  alt="Logo"
-                  src="/img/BPlogo1.svg"
-                  className="hover:animate"
-                />
-              </Suspense>
-            </div>
-          </div>
-          <Link
-            className="grid hover:bg-[#004aad] hover:text-white text-[#004aad] bg-white md:bg-slate-50 md:hover:bg-[#fff7f4] sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-4 rounded-3xl duration-300 sm:rounded-none w-full select-none"
-            href="/"
-            onClick={handleLinkClick}
-          >
-            <li className="">Inicio</li>
-          </Link>
-          <Link
-            className="grid w-full hover:bg-[#004aad] hover:text-white text-[#004aad] bg-white md:bg-slate-50 sm:border-x items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none select-none"
-            href="#about"
-            onClick={handleLinkClick}
-          >
-            <li className="">¿Quiénes somos?</li>
-          </Link>
-          <Link
-            className="grid hover:bg-[#004aad] text-[#004aad] hover:text-white bg-white md:bg-slate-50 sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
-            href="#contact"
-            onClick={handleLinkClick}
-          >
-            <li className="">Contáctanos</li>
-          </Link>
-          <Link
-            className="grid hover:bg-[#004aad] text-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
-            href="/faq"
-            onClick={handleLinkClick}
-          >
-            <li className="">Preguntas frecuentes</li>
-          </Link>
-          <Link
-            className="grid hover:bg-[#004aad] text-[#004aad] hover:text-white bg-white sm:border-x-0 items-center justify-items-center sm:w-full sm:h-full h-fit px-8 rounded-3xl duration-300 sm:rounded-none w-full select-none"
-            href="/blog"
-            onClick={handleLinkClick}
-          >
-            <li className="">Blog</li>
-          </Link>
-        </ul>
+
+        {/* Botón hamburguesa */}
         <div
-          className={`navToggle ${isOpen && "open"} md:hidden mr-4`}
+          className={`navToggle ${isOpen && "open"} md:hidden`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <span></span>
           <span></span>
           <span></span>
         </div>
+
+        {/* Menú móvil */}
+        <ul
+          className={`${questrial.className} navItem ${isOpen && "open"} bg-white pt-12 pb-6 px-6`}
+        >
+          <div className="flex justify-center mb-6">
+            <Suspense fallback={<div className="w-28 h-10" />}>
+              <Image
+                width={200}
+                height={140}
+                alt="Buen Plan Salud"
+                src="/img/BPlogo1.svg"
+                className="w-32 select-none"
+              />
+            </Suspense>
+          </div>
+          {[
+            { label: "Inicio", href: "/" },
+            { label: "¿Quiénes somos?", href: anchorHref("#about") },
+            { label: "Contáctanos", href: anchorHref("#contact") },
+            { label: "Preguntas frecuentes", href: "/faq" },
+            { label: "Blog", href: "/blog" },
+          ].map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              onClick={handleLinkClick}
+              className="flex items-center w-full px-4 py-3 text-[#004aad] font-semibold text-lg border-b border-gray-100 hover:bg-[#e9f5ff] hover:text-[#004aad] transition-colors duration-200 rounded-md"
+            >
+              {label}
+            </Link>
+          ))}
+        </ul>
       </nav>
     </>
   );
