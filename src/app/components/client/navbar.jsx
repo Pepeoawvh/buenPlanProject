@@ -77,7 +77,7 @@ const NavBar = () => {
         <ul
           className={`${questrial.className} navItem ${isOpen && "open"} bg-white pt-12 pb-6 px-6`}
         >
-          <div className="flex justify-center mb-6">
+          <li className="list-none flex justify-center mb-6">
             <Suspense fallback={<div className="w-28 h-10" />}>
               <Image
                 width={200}
@@ -87,7 +87,7 @@ const NavBar = () => {
                 className="w-32 select-none"
               />
             </Suspense>
-          </div>
+          </li>
           {[
             { label: "Inicio", href: "/" },
             { label: "¿Quiénes somos?", href: anchorHref("#about") },
@@ -95,14 +95,15 @@ const NavBar = () => {
             { label: "Preguntas frecuentes", href: "/faq" },
             { label: "Blog", href: "/blog" },
           ].map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              onClick={handleLinkClick}
-              className="flex items-center w-full px-4 py-3 text-[#004aad] font-semibold text-lg border-b border-gray-100 hover:bg-[#e9f5ff] hover:text-[#004aad] transition-colors duration-200 rounded-md"
-            >
-              {label}
-            </Link>
+            <li key={label} className="list-none">
+              <Link
+                href={href}
+                onClick={handleLinkClick}
+                className="flex items-center w-full px-4 py-3 text-[#004aad] font-semibold text-lg border-b border-gray-100 hover:bg-[#e9f5ff] hover:text-[#004aad] transition-colors duration-200 rounded-md"
+              >
+                {label}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>

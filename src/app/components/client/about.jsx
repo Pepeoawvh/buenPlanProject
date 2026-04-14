@@ -24,7 +24,7 @@ const About = () => {
             {/* Servicio gratuito destacado */}
             <div className="flex items-center justify-center bg-primary-light p-3 md:p-4 mb-5 md:mb-6 border-l-4 border-accent-green">
               <FaCheckCircle className="text-accent-green text-xl md:text-2xl mr-2 md:mr-3" />
-              <p className=" text-center text-base md:text-lg font-medium text-white">
+              <p className=" text-center text-base md:text-lg font-medium text-[#004aad]">
                 En Buen Plan brindamos un servicio 100% Gratuito
               </p>
             </div>

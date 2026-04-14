@@ -31,7 +31,7 @@ const Comofunciona = () => {
             </div>
             {/* Título centrado */}
             <div className="flex-grow text-center">
-              <h1 className={`${bebas.className} text-2xl md:text-3xl lg:text-4xl tracking-widest`}>¿CÓMO FUNCIONA?</h1>
+              <h2 className={`${bebas.className} text-2xl md:text-3xl lg:text-4xl tracking-widest`}>¿CÓMO FUNCIONA?</h2>
               <div className="h-0.5 w-16 md:w-20 bg-white/60 mx-auto mt-1"></div>
             </div>
             {/* Espaciador para centrar visualmente el título */}

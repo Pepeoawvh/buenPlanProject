@@ -1,6 +1,5 @@
 "use client";
 import React, { Suspense, lazy } from 'react'
-import "tw-elements-react/dist/css/tw-elements-react.min.css"
 
 const Hero = lazy(() => import('./components/client/hero'))
 const Testimonials = lazy(() => import('./components/client/testimonials'))
