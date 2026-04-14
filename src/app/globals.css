@@ -19,28 +19,23 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 31, 41, 55;
-    --background-end-rgb: 0, 0, 0;
-    --color-primary: #2694e7;
-    --color-primary-light: #1c6cb9;
-    --color-secondary: #fff;
+    --foreground-rgb: 31, 41, 55;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
+    --color-primary: #004aad;
+    --color-primary-light: #e9faff;
+    --color-secondary: #1f2937;
     --color-accent-green: #4ade80;
     --color-accent-yellow: #fde68a;
-    --color-white: #1f2937;
-    --color-link: #4ade80;
-    --color-link-hover: #fde68a;
+    --color-white: #fff;
+    --color-link: #2694e7;
+    --color-link-hover: #1c6cb9;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #ffffff;
 }
 
 @layer utilities {

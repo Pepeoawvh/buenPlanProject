@@ -4,9 +4,9 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
   if (!editData) return null;
 
   return (
-    <tr className=" bg-blue-800 text-yellow-400 w-full aspect-auto text-xs">
+    <tr className="bg-[#e9f5ff] text-[#004aad] w-full aspect-auto text-xs border-l-4 border-[#2694e7]">
       <td colSpan={columns.length} className="grid w-full">
-        <form className="grid mt-2 gap-2" onSubmit={handleEditSubmit}>
+        <form className="grid mt-2 gap-2 p-2" onSubmit={handleEditSubmit}>
           <div className="grid auto-rows-min">
             <span className="pl-2">Nombre</span>
             <input
@@ -15,7 +15,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.nombre || ""}
               onChange={handleEditChange}
               placeholder="Nombre"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -26,7 +26,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.rut || ""}
               onChange={handleEditChange}
               placeholder="RUT"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -37,7 +37,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.email || ""}
               onChange={handleEditChange}
               placeholder="Email"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -48,7 +48,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.edad || ""}
               onChange={handleEditChange}
               placeholder="Edad"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -59,7 +59,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.telefono || ""}
               onChange={handleEditChange}
               placeholder="Teléfono"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -70,7 +70,7 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.institucion || ""}
               onChange={handleEditChange}
               placeholder="Institución"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
           <div className="grid auto-rows-min">
@@ -81,13 +81,13 @@ const EditForm = ({ editData, handleEditChange, handleEditSubmit, columns }) => 
               value={editData.clinica || ""}
               onChange={handleEditChange}
               placeholder="Clínica"
-              className="text-blue-900 mx-4 rounded-sm bg-blue-200 px-3 py-1 shadow-md focus:outline-none"
+              className="text-[#1f2937] mx-4 rounded border border-[#2694e7] bg-white px-3 py-1 focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
             />
           </div>
        
           <button
             type="submit"
-            className="h-8 mt-2 text-[#ffffef] mx-2 mb-2 rounded-sm border-2 border-yellow-400  bg-gradient-to-r from-blue-600 to-blue-800 shadow-md hover:bg-orange-500"
+            className="h-8 mt-2 text-white mx-2 mb-2 rounded border border-[#004aad] bg-[#004aad] shadow-sm hover:bg-[#2694e7] transition-colors"
           >
             Guardar
           </button>

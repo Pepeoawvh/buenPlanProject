@@ -142,7 +142,7 @@ const SortableTable2 = ({ data }) => {
       <div className="mb-4 px-4 flex text-sm items-center space-x-4">
         <button
           onClick={generatePDF}
-          className="md:h-fit md:text-lg text-sm mt-2 px-8 rounded-md border-2 border-[#40a0ff] hover:bg-cyan-500"
+          className="md:h-fit md:text-lg text-sm mt-2 px-8 rounded-md border-2 border-[#004aad] text-[#004aad] bg-white hover:bg-[#004aad] hover:text-white transition-colors"
         >
           Descargar Tabla Actual
         </button>
@@ -151,7 +151,7 @@ const SortableTable2 = ({ data }) => {
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Buscar..."
-          className="h-8 mt-2 px-4 rounded-md border-2 border-[#40a0ff] shadow-md focus:outline-none"
+          className="h-8 mt-2 px-4 rounded-md border-2 border-[#2694e7] text-[#1f2937] bg-white shadow-sm focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
         />
         <label className="block mb-4">
           Mes:
@@ -159,12 +159,12 @@ const SortableTable2 = ({ data }) => {
             type="month"
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="ml-2 p-2 border-2 rounded w-auto border-[#40a0ff]"
+            className="ml-2 p-2 border-2 rounded w-auto border-[#2694e7] text-[#1f2937] focus:outline-none focus:ring-1 focus:ring-[#2694e7]"
           />
         </label>
       </div>
       <table {...getTableProps()} className="w-full">
-        <thead className="bg-blue-600 text-yellow-400 tracking-wider">
+        <thead className="bg-[#004aad] text-white tracking-wider">
           {headerGroups.map((headerGroup) => (
             <tr
               key={headerGroup.id}
