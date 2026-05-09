@@ -1,88 +1,103 @@
-# Buen Plan — Plataforma de Asesoría en Planes de Salud
+# Buen Plan
 
-Sitio web profesional para una consultora de planes de salud (Isapres) en Chile. Next.js App Router, orientado a captar clientes mediante asesoría personalizada gratuita.
+Sitio web para una consultora de planes de salud en Chile, enfocado en captar leads, resolver dudas frecuentes y administrar contenido del blog desde un panel privado.
 
-**🌐 [buenplansalud.cl](https://www.buenplansalud.cl)**
+**Sitio:** [buenplansalud.cl](https://www.buenplansalud.cl)
 
----
+## Resumen
 
-## Descripción
+Buen Plan centraliza la presentación comercial del servicio, el formulario de captación de clientes y un pequeño CMS para publicar contenido relacionado con Isapres y salud. El proyecto está construido con Next.js y usa Firebase como base para autenticación y almacenamiento.
 
-Buen Plan conecta a usuarios con asesores certificados por la Superintendencia de Salud de Chile. El sitio permite acceder a comparacion de planes de isapre, resolver dudas frecuentes y solicitar asesoría personalizada sin costo.
+## Funcionalidades
 
----
+- Landing page con secciones de hero, beneficios, proceso, comparador y testimonios
+- Formulario de contacto para solicitar asesoría gratuita
+- Blog con listado de artículos y vista de detalle por publicación
+- Panel administrativo protegido para revisar formularios y gestionar posts
+- Editor enriquecido con TipTap para crear contenido
+- Exportación de artículos a PDF
+- Página de preguntas frecuentes con datos estructurados para SEO
+- Sitemap y `robots.txt` generados para indexación
 
-## Stack tecnológico
+## Stack
 
 | Área | Tecnología |
-|------|-----------|
-| Framework | Next.js 16 (App Router, Turbopack) |
-| UI | React 19 + Tailwind CSS 3 |
-| Backend / DB | Firebase Firestore |
+| --- | --- |
+| Framework | Next.js 16 |
+| UI | React 19 |
+| Estilos | Tailwind CSS 3 |
+| Base de datos | Firebase Firestore |
 | Autenticación | Firebase Auth |
-| Email | EmailJS (@emailjs/browser) |
-| Editor de texto enriquecido | TipTap (blog) |
-| Generación de PDF | jsPDF + jspdf-autotable |
-| Animaciones | tailwindcss-animated |
-| SEO | next-sitemap, schema.org JSON-LD |
-| Despliegue | Vercel |
+| Email | EmailJS |
+| Editor | TipTap |
+| PDF | jsPDF + jspdf-autotable |
+| SEO | Metadata API + JSON-LD + next-sitemap |
 
----
+## Rutas principales
 
-## Características principales
+- `/` — página principal
+- `/blog` — listado de artículos
+- `/blog/post/[id]` — detalle de artículo
+- `/faq` — preguntas frecuentes
+- `/adminbp` — panel de administración
+- `/adminbp/blog` — gestión del blog
 
-### Frontend
-- **Landing page** con hero section, carrusel de beneficios, comparador de Isapres, sección "¿Cómo funciona?" y testimonios
-- **Diseño responsive** optimizado para mobile, tablet y desktop
-- **Paleta de colores institucional** con variables CSS y tokens Tailwind personalizados (azul confianza + verde bienestar)
-- **Formulario de contacto** con EmailJS — envío de notificaciones al equipo sin backend propio
-- **Lazy loading** de todos los componentes pesados con `React.Suspense`
-- **Animaciones de entrada** con tailwindcss-animated
+## Requisitos
 
-### SEO (Google Search Central guidelines)
-- Metadata API de Next.js App Router en todas las páginas (título, descripción, Open Graph, Twitter Cards)
-- **JSON-LD estructurado**: `ProfessionalService` en el layout global, `FAQPage` en preguntas frecuentes
-- Sitemap XML automático con `next-sitemap` y prioridades diferenciadas
-- `robots.txt` con exclusión del panel de administración
-- Alt texts descriptivos en todas las imágenes
-- URLs canónicas por página
+- Node.js 20 o superior
+- npm
 
-### Blog con CMS propio
-- Panel de administración privado protegido con Firebase Auth
-- Editor de contenido enriquecido con **TipTap** (negrita, cursiva, color, imágenes, vínculos)
-- 4 plantillas de artículo disponibles
-- Exportación de artículos a **PDF** con jsPDF
-- Almacenamiento de posts en Firestore con ordenamiento por fecha
+## Instalación
 
-### Páginas
-- `/` — Homepage (Hero, Banner, Cómo funciona, Isapres, Formulario, Testimonios, Acerca de)
-- `/blog` — Listado de artículos
-- `/blog/post/[id]` — Artículo individual con plantilla dinámica
-- `/faq` — Preguntas frecuentes con formulario de contacto integrado
-
----
-
-## Arquitectura
-
+```bash
+npm install
 ```
+
+## Ejecución local
+
+```bash
+npm run dev
+```
+
+La aplicación quedará disponible en `http://localhost:3000`.
+
+## Scripts disponibles
+
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
+
+## Estructura del proyecto
+
+```text
 src/app/
-├── layout.js          # Root layout con metadata global y JSON-LD
-├── page.js            # Server Component homepage (metadata única)
-├── HomePageContent.jsx # Client Component con todos los lazy imports
-├── blog/              # Listado y posts del blog
-├── faq/               # FAQ con schema FAQPage
-├── adminbp/           # Panel de administración protegido
-├── components/
-│   └── client/        # Componentes React del sitio (navbar, hero, contact, etc.)
-├── context/           # AuthProvider (Firebase Auth)
-└── firebase/          # Configuración de Firebase
+├── adminbp/               # Panel administrativo
+├── blog/                  # Blog público y componentes del CMS
+├── components/client/     # Componentes visuales del sitio
+├── context/               # Contexto de autenticación
+├── faq/                   # Página de preguntas frecuentes
+├── firebase/              # Configuración de Firebase
+├── HomePageContent.jsx    # Composición de la home
+├── layout.js              # Layout global y metadata
+└── page.js                # Entrada de la página principal
 ```
 
----
+## Integraciones
+
+- **Firebase Firestore** para formularios y publicaciones
+- **Firebase Auth** para acceso al panel privado
+- **EmailJS** para notificaciones del formulario
+- **next-sitemap** para generar sitemap y `robots.txt`
+
+## Estado actual de validación
+
+Se intentó ejecutar `npm run lint` y `npm run build`, pero en el entorno actual fallan porque `next` no está instalado todavía; primero debe ejecutarse `npm install`.
 
 ## Autor
 
-**José Pedro Valdés** — Desarrollador Web Full Stack  
-[GitHub](https://github.com/Pepeoawvh)
-[Portafolio](https://joseangelportfolio.vercel.app)
-
+**José Pedro Valdés**  
+- GitHub: [Pepeoawvh](https://github.com/Pepeoawvh)
+- Portafolio: [joseangelportfolio.vercel.app](https://joseangelportfolio.vercel.app)
