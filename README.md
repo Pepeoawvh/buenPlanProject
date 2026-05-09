@@ -92,10 +92,6 @@ src/app/
 - **EmailJS** para notificaciones del formulario
 - **next-sitemap** para generar sitemap y `robots.txt`
 
-## Estado actual de validación
-
-Se intentó ejecutar `npm run lint` y `npm run build`, pero en el entorno actual fallan porque `next` no está instalado todavía; primero debe ejecutarse `npm install`.
-
 ## Autor
 
 **José Pedro Valdés**  
