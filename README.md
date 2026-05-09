@@ -1,6 +1,6 @@
 # Buen Plan
 
-Sitio web para una consultora de planes de salud en Chile, enfocado en captar leads, resolver dudas frecuentes y administrar contenido del blog desde un panel privado.
+Sitio web para una consultora de planes de salud en Chile, enfocado en conectar con usuarios, resolver dudas frecuentes y administrar contenido del blog desde un panel privado.
 
 **Sitio:** [buenplansalud.cl](https://www.buenplansalud.cl)
 
